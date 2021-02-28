@@ -1,0 +1,84 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  top: 0;
+  align-items: center;
+  min-height: 9vh;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  padding: 10px 0;
+  background-color: rgba(29, 29, 29, 0.4);
+  box-shadow: 1px 1px 1px #cac4c4;
+}
+header h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: #fd4b0a;
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 6px;
+}
+header ul {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+header ul li {
+  position: relative;
+  list-style: none;
+  padding-right: 5px;
+  font-size: 15px;
+}
+header ul li::before {
+  content: "";
+  width: 0%;
+  position: absolute;
+  top: 22px;
+  transition: width 0.3s ease;
+  background: #fd4b0a;
+  height: 1px;
+}
+header ul li:hover::before {
+  width: 100%;
+}
+header ul li a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px black;
+}
+header #otherLanguages {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+}
+header #otherLanguages a {
+  padding: 8px 0px;
+  text-decoration: none;
+  display: block;
+}
+header #otherLanguages a span {
+  font-weight: 900 !important;
+}
+header #languages {
+  position: relative;
+  display: inline-block;
+}
+header #languages a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-weight: 600;
+}
+header #languages p {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 600;
+}
+#languages:hover #otherLanguages {
+  display: block;
+}

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ul2KBn6Z2axBnmkFzBGTDgOzm4l2ByS5EN26xoQhphfNKJHRj3v1tUkBkAC/KkPwEyT2f2TAmfqfjOWXzpVRlQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\grish\\source\\repos\\Restaurant-Website\\Domain\\Core\\Restaurant-Website.Domain.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.3\\microsoft.aspnetcore.http.features.5.0.3.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
