@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model ApplicationViewModel
+
+<script asp-src-include="lib/jquery/dist/*.min.js"></script>
+<script asp-src-include="lib/jquery-validation/dist/jquery.*.min.js"></script>
+<script asp-src-include="lib/jquery-validation-unobtrusive/*.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/css/work.css">
+
+<section id="heading">
+    <p>@Resources.Home.Work.Work.Header</p>
+</section>
+
+<main>
+    <section id="register">
+        <form asp-action="Work" enctype="multipart/form-data" method="post">
+
+            <div asp-validation-summary="None" style="color: darkred"></div>
+
+            <label for="name">@Resources.Home.Work.Work.NameLabel</label><br>
+            <div><span asp-validation-for="Name" style="color: darkred"></span></div>
+            <input asp-for="Name" type="text" placeholder="@Resources.Home.Work.Work.NameLabel" id="name" required class="inputs">
+            <br />
+
+            <label for="surname">@Resources.Home.Work.Work.SurnameLabel</label><br>
+            <div><span asp-validation-for="Surname" style="color: darkred"></span></div>
+            <input asp-for="Surname" type="text" placeholder="@Resources.Home.Work.Work.SurnameLabel" id="surname" required class="inputs">
+            <br />
+
+            <label for="birthdate">@Resources.Home.Work.Work.AgeLabel</label><br>
+            <div><span asp-validation-for="Age" style="color: darkred"></span></div>
+            <input asp-for="Age" type="number" placeholder="@Resources.Home.Work.Work.AgeLabel" id="birthdate" required class="inputs">
+            <br />
+
+            <label for="email">@Resources.Home.Work.Work.EmailLabel</label><br>
+            <div><span asp-validation-for="Email" style="color: darkred"></span></div>
+            <input asp-for="Email" type="email" placeholder="user@example.com" id="email" required class="inputs">
+            <br />
+
+            <label for="job">@Resources.Home.Work.Work.StaffLabel</label><br>
+            <div><span asp-validation-for="Vacancy" style="color: darkred"></span></div>
+            @Html.DropDownListFor(model => model.Vacancy, ViewBag.Vacancies as SelectList, new { htmlAttributes = new { id = "job" } })
+            <br />
+
+            <label for="cv">@Resources.Home.Work.Work.CvLabel</label><br>
+            <div><span asp-validation-for="Cv" style="color: darkred"></span></div>
+            <div>
+                <input asp-for="Cv" type="file" required>
+
+                <button type="submit">
+                    @Resources.Home.Work.Work.Submit
+                </button>
+            </div>
+
+        </form>
+    </section>
+</main>

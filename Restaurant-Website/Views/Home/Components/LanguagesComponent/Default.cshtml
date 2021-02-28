@@ -1,0 +1,13 @@
+﻿ @model IEnumerable<LanguageViewModel> 
+
+<div id="languages" class="noselect">
+    <p>
+        @Model.First().Description
+    </p>
+    <div id="otherLanguages">
+        @foreach (var item in Model.Skip(1))
+        {
+            <a asp-controller="Languages" asp-action="ChangeLanguage" asp-route-lang="@item.Code">@item.Description</a>
+        }
+    </div>
+</div>
