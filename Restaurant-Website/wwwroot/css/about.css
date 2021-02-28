@@ -1,0 +1,41 @@
+#aboutUs {
+    background-image: url(../images/joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+}
+#aboutUs h1 {
+      font-size: 55px;
+      text-align: center;
+      padding-top: 250px;
+      color: white;
+      font-family: 'Fraunces', serif;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 2px black;
+}
+#gridArea {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      margin-top: 120px;
+      column-gap: 40px;
+}
+#gridArea h4 {
+      font-size: 20px;
+      display: inline-block;
+      color: #ccc;
+      border-radius: 10px;
+      font-weight: bold;
+      font-family: 'Fraunces', serif;
+      border-bottom: 1px ridge #ccc;
+}
+#gridArea img {
+      height: 300px;
+      width: 350px;
+}
+#gridArea div {
+      background-color: rgba(248, 239, 239, 0.1);
+      margin: 10px 40px;
+      border-radius: 5px;
+      padding: 20px 0 30px 0;
+}

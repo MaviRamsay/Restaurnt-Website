@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "tapv/Qo3q2a3k8wAp3bzUZ8/Zxv5zVORIaGRqBmNmVoY/Tx+fG4OSUO8WIMCfLB0AsT/UeaecWKF9AbK+4ZbEw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\grish\\source\\repos\\Restaurant-Website\\Services\\Interfaces\\Restaurant_Website.Services.Interfaces.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.3\\microsoft.aspnetcore.http.features.5.0.3.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
