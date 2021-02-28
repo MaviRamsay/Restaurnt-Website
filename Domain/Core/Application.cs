@@ -1,0 +1,21 @@
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
+
+namespace Restaurant_Website.Domain.Core
+{
+    public class Application
+    {
+        [Key]
+        public int Id { get; set; }
+        public DateTime SubmitDate { get; set; }
+
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public int Age { get; set; }
+        public Vacancy Vacancy { get; set; }
+        public byte[] Cv { get; set; }
+    }
+}

@@ -1,0 +1,36 @@
+2021-02-27 22:17:43.9323|0|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. |url: |action: |
+2021-02-27 22:17:44.1133|0|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development |url: |action: |
+2021-02-27 22:17:44.1133|0|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\grish\source\repos\Restaurant-Website\Restaurant-Website |url: |action: |
+2021-02-27 22:17:46.2439|0|INFO|Restaurant_Website.Controllers.HomeController|Index action |url: http://localhost/|action: Index|
+2021-02-27 22:17:58.0984|0|INFO|Restaurant_Website.Controllers.HomeController|Index action |url: http://localhost/index|action: Index|
+2021-02-27 22:36:49.6920 | 0 | INFO | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down.  | url:  | action:  |
+2021-02-27 22:36:49.9276 | 0 | INFO | Microsoft.Hosting.Lifetime | Hosting environment: Development  | url:  | action:  |
+2021-02-27 22:36:49.9593 | 0 | INFO | Microsoft.Hosting.Lifetime | Content root path: C:\Users\grish\source\repos\Restaurant-Website\Restaurant-Website  | url:  | action:  |
+2021-02-27 22:37:36.4372 | 0 | INFO | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down.  | url:  | action:  |
+2021-02-27 22:37:36.5016 | 0 | INFO | Microsoft.Hosting.Lifetime | Hosting environment: Development  | url:  | action:  |
+2021-02-27 22:37:36.5173 | 0 | INFO | Microsoft.Hosting.Lifetime | Content root path: C:\Users\grish\source\repos\Restaurant-Website\Restaurant-Website  | url:  | action:  |
+2021-02-27 22:38:54.1517 | 2 | ERROR | Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer | Connection ID "18302628891539275781", Request ID "80000009-0001-fe00-b63f-84710c7967bb": An unhandled exception was thrown by the application. System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'IServiceProvider'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ThrowHelper.ThrowObjectDisposedException()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at Microsoft.EntityFrameworkCore.Internal.ScopedLoggerFactory.Create(IServiceProvider internalServiceProvider, IDbContextOptions contextOptions)
+   at Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder.<>c.<TryAddCoreServices>b__7_0(IServiceProvider p)
+   at ResolveService(ILEmitResolverBuilderRuntimeContext , ServiceProviderEngineScope )
+   at ResolveService(ILEmitResolverBuilderRuntimeContext , ServiceProviderEngineScope )
+   at ResolveService(ILEmitResolverBuilderRuntimeContext , ServiceProviderEngineScope )
+   at ResolveService(ILEmitResolverBuilderRuntimeContext , ServiceProviderEngineScope )
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Restaurant_Website.Infrastructure.Data.Implementation.UnitOfWork.CommitAsync() in C:\Users\grish\source\repos\Restaurant-Website\Restaurant_Website.Infrastructure.Data\Implementation\UnitOfWork.cs:line 29
+   at Restaurant_Website.Infrastructure.Data.Implementation.UnitOfWork.DisposeAsync() in C:\Users\grish\source\repos\Restaurant-Website\Restaurant_Website.Infrastructure.Data\Implementation\UnitOfWork.cs:line 33
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.<DisposeAsync>g__Await|15_0(Int32 i, ValueTask vt, List`1 toDispose)
+   at Microsoft.AspNetCore.Http.Features.RequestServicesFeature.<DisposeAsync>g__Awaited|9_0(RequestServicesFeature servicesFeature, ValueTask vt)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted() | url: http://localhost/index | action:  |
+2021-02-27 23:29:09.6429 | 0 | INFO | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down.  | url:  | action:  |
+2021-02-27 23:29:09.7136 | 0 | INFO | Microsoft.Hosting.Lifetime | Hosting environment: Development  | url:  | action:  |
+2021-02-27 23:29:09.7315 | 0 | INFO | Microsoft.Hosting.Lifetime | Content root path: C:\Users\grish\source\repos\Restaurant-Website\Restaurant-Website  | url:  | action:  |

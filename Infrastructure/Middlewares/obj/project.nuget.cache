@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "kIW1/d5ypbPk8mMAkD6mUfItNg1pqDwxsc0gHlNgX1DvC4XXxjRFtrqtL72VvFC7k6O6TQdvJu39P7alN1eEsw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\grish\\source\\repos\\Restaurant-Website\\Infrastructure\\Middlewares\\Restaurant_Website.Infrastructure.Middlewares.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.3\\microsoft.aspnetcore.http.features.5.0.3.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\grish\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
