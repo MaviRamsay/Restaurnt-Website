@@ -42,9 +42,9 @@ namespace Restaurant_Website.Services.Implementations
             return await unitOfWork.Languages.GetAsync(t => t.Code == code);
         }
 
-        public async Task<string> GetDefaultLanguageAsync(HttpContext context)
+        public async Task<string> GetDefaultLanguageCodeAsync(HttpContext context)
         {
-            var ip = context.Connection.RemoteIpAddress;
+            IPAddress ip = context.Connection.RemoteIpAddress;
 
             string requestCountry = await GetCountryCodeByIpAsync(ip);
             Language languageInstance = await unitOfWork.Languages.GetAsync(t => t.AvalibleCountries.Contains(requestCountry));

@@ -12,7 +12,7 @@ namespace Restaurant_Website.Services.Interfaces
         bool DeleteLanguage();
 
         Task<Language> GetLanguageAsync(string code);
-        Task<string> GetDefaultLanguageAsync(HttpContext context);
+        Task<string> GetDefaultLanguageCodeAsync(HttpContext context);
         Task<IEnumerable<Language>> GetLanguagesAsync();
     }
 }
