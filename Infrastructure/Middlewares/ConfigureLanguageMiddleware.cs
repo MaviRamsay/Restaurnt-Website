@@ -19,13 +19,20 @@ namespace Restaurant_Website.Infrastructure.Middlewares
 
         public async Task Invoke(HttpContext context, ILanguageService languageService)
         {
-            string language = context.Request.Cookies["culture"];
+            string clientLanguage = context.Request.Cookies["culture"];
+            string language = null;
+
+            if (!(clientLanguage is null))
+            {
+                language = (await languageService.GetLanguageAsync(clientLanguage))?.Code;
+            }
 
             if (language is null)
             {
-                language = await languageService.GetDefaultLanguageAsync(context);
+                language = await languageService.GetDefaultLanguageCodeAsync(context);
 
-                context.Response.Cookies.Append("culture", language);
+                context.Items["culture"] = language; // for current request 
+                context.Response.Cookies.Append("culture", language); // for next request
             }
 
             var culture = new CultureInfo(language);

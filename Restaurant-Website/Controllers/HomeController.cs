@@ -16,25 +16,16 @@ namespace Restaurant_Website.Controllers
     {
         private readonly IApplicationService applicationService;
         private readonly IVacancyService vacancyService;
-        private readonly ILanguageService languageService;
-        private readonly IHttpContextAccessor accessor;
         private readonly ILogger<HomeController> logger;
 
-        private readonly string defaultLanguage;
-
         public HomeController(ILogger<HomeController> logger, 
-                                IHttpContextAccessor accessor, 
                                 IApplicationService applicationService, 
-                                IVacancyService vacancyService, 
-                                ILanguageService languageService)
+                                IVacancyService vacancyService)
         {
             this.logger = logger;
-            this.accessor = accessor;
             this.applicationService = applicationService;
             this.vacancyService = vacancyService;
-            this.languageService = languageService;
 
-            this.defaultLanguage = languageService.GetDefaultLanguageAsync(accessor.HttpContext).Result;
         }
 
         [Route("")]
@@ -53,7 +44,7 @@ namespace Restaurant_Website.Controllers
         [Route("work")]
         public async Task<ViewResult> Work()
         {
-            string lang = HttpContext.Request.Cookies["culture"] ?? defaultLanguage;
+            string lang = HttpContext.Request.Cookies["culture"] ?? HttpContext.Items["culture"].ToString();
 
             var translations = await vacancyService.GetVacancyTranslationsAsync(lang);
 
