@@ -1,8 +1,10 @@
-﻿using Restaurant_Website.Domain.Core;
+﻿using Microsoft.AspNetCore.Http;
+using Restaurant_Website.Domain.Core;
 using Restaurant_Website.Domain.Interfaces;
 using Restaurant_Website.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Restaurant_Website.Services.Implementations
@@ -38,6 +40,18 @@ namespace Restaurant_Website.Services.Implementations
         public Task<IEnumerable<Application>> GetApplicationsAsync()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<byte[]> ConvertCvToArrayAsync(IFormFile file)
+        {
+            byte[] cv;
+            using (var ms = new MemoryStream())
+            {
+                await file.CopyToAsync(ms);
+                cv = ms.ToArray();
+            }
+
+            return cv;
         }
     }
 }

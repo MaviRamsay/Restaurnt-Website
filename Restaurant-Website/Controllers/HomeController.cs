@@ -65,7 +65,7 @@ namespace Restaurant_Website.Controllers
         {
             if(ModelState.IsValid)
             {
-                var cv = await vacancyService.ConvertCvToArrayAsync(applicationViewModel.Cv);
+                var cv = await applicationService.ConvertCvToArrayAsync(applicationViewModel.Cv);
                 var vacancy = await vacancyService.GetVacancyByIdAsync(applicationViewModel.Vacancy);
 
                 IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationViewModel, Application>()

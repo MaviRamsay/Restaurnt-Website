@@ -41,17 +41,5 @@ namespace Restaurant_Website.Services.Implementations
         {
             return await unitOfWork.Vacancies.GetAsync(t => t.Id == id);
         }
-
-        public async Task<byte[]> ConvertCvToArrayAsync(IFormFile file)
-        {
-            byte[] cv;
-            using (var ms = new MemoryStream())
-            {
-                await file.CopyToAsync(ms);
-                cv = ms.ToArray();
-            }
-
-            return cv;
-        }
     }
 }
