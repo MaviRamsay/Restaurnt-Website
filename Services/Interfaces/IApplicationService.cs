@@ -1,4 +1,5 @@
-﻿using Restaurant_Website.Domain.Core;
+﻿using Microsoft.AspNetCore.Http;
+using Restaurant_Website.Domain.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,6 @@ namespace Restaurant_Website.Services.Interfaces
         Task<bool> CreateApplicationAsync(Application application);
         bool DeleteApplication(Application application);
 
+        Task<byte[]> ConvertCvToArrayAsync(IFormFile file);
     }
 }

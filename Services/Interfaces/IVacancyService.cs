@@ -13,7 +13,5 @@ namespace Restaurant_Website.Services.Interfaces
         Task<bool> CreateVacancyAsync(Vacancy vacancy);
         Task<bool> EditVacancyAsync(Vacancy vacancy);
         bool DeleteVacancy(Vacancy vacancy);
-
-        Task<byte[]> ConvertCvToArrayAsync(IFormFile file);
     }
 }
