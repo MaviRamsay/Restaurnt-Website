@@ -27,14 +27,18 @@ namespace Restaurant_Website.Services.Implementations
             return true;
         }
 
-        public bool DeleteApplication(Application application)
+        public async Task<bool> DeleteApplicationAsync(Application application)
         {
-            throw new NotImplementedException();
+            unitOfWork.Applications.Delete(application);
+
+            await unitOfWork.CommitAsync();
+
+            return true;
         }
 
-        public Task<Application> GetApplicationByIdAsync(int id)
+        public async Task<Application> GetApplicationByIdAsync(object id)
         {
-            throw new NotImplementedException();
+            return await unitOfWork.Applications.GetByIdAsync(id);
         }
 
         public Task<IEnumerable<Application>> GetApplicationsAsync()

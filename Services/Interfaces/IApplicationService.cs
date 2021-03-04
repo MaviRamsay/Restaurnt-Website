@@ -10,10 +10,10 @@ namespace Restaurant_Website.Services.Interfaces
     public interface IApplicationService
     {
         Task<IEnumerable<Application>> GetApplicationsAsync();
-        Task<Application> GetApplicationByIdAsync(int id);
+        Task<Application> GetApplicationByIdAsync(object id);
 
         Task<bool> CreateApplicationAsync(Application application);
-        bool DeleteApplication(Application application);
+        Task<bool> DeleteApplicationAsync(Application application);
 
         Task<byte[]> ConvertCvToArrayAsync(IFormFile file);
     }
