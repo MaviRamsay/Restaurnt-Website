@@ -17,27 +17,27 @@ namespace Restaurant_Website.Services.Implementations
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> CreateVacancyAsync(Vacancy vacancy)
+        public async Task<bool> CreateAsync(Vacancy vacancy)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<bool> EditVacancyAsync(Vacancy vacancy)
+        public async Task<bool> EditAsync(Vacancy vacancy)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool DeleteVacancy(Vacancy vacancy)
+        public async Task<bool> DeleteAsync(Vacancy vacancy)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<IEnumerable<VacancyLang>> GetVacancyTranslationsAsync(string lang)
+        public async Task<IEnumerable<VacancyLang>> GetTranslationsAsync(string lang)
         {
             return await unitOfWork.VacancyTranslations.GetAllAsync(t => t.Vacancy.IsActive == true && t.Language.Code == lang);
         }
 
-        public async Task<Vacancy> GetVacancyByIdAsync(int id)
+        public async Task<Vacancy> GetByIdAsync(int id)
         {
             return await unitOfWork.Vacancies.GetAsync(t => t.Id == id);
         }

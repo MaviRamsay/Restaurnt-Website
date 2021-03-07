@@ -22,27 +22,27 @@ namespace Restaurant_Website.Services.Implementations
             this.configuration = configuration;
         }
 
-        public async Task<bool> CreateLanguageAsync()
+        public async Task<bool> CreateAsync()
         {
             throw new NotImplementedException();
         }
 
-        public bool DeleteLanguage()
+        public async Task<bool> DeleteAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> EditLanguageAsync()
+        public async Task<bool> EditAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Language> GetLanguageAsync(string code)
+        public async Task<Language> GetByCodeAsync(string code)
         {
             return await unitOfWork.Languages.GetAsync(t => t.Code == code);
         }
 
-        public async Task<string> GetDefaultLanguageCodeAsync(HttpContext context)
+        public async Task<string> GetDefaultCodeAsync(HttpContext context)
         {
             IPAddress ip = context.Connection.RemoteIpAddress;
 
@@ -66,7 +66,7 @@ namespace Restaurant_Website.Services.Implementations
             return languageCode;
         }
 
-        public async Task<IEnumerable<Language>> GetLanguagesAsync()
+        public async Task<IEnumerable<Language>> GetAllAsync()
         {
             return await unitOfWork.Languages.GetAllAsync();
         }
