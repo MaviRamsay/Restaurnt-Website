@@ -18,7 +18,7 @@ namespace Restaurant_Website.Services.Implementations
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> CreateApplicationAsync(Application application)
+        public async Task<bool> CreateAsync(Application application)
         {
             await unitOfWork.Applications.InsertAsync(application);
 
@@ -27,7 +27,7 @@ namespace Restaurant_Website.Services.Implementations
             return true;
         }
 
-        public async Task<bool> DeleteApplicationAsync(Application application)
+        public async Task<bool> DeleteAsync(Application application)
         {
             unitOfWork.Applications.Delete(application);
 
@@ -36,12 +36,12 @@ namespace Restaurant_Website.Services.Implementations
             return true;
         }
 
-        public async Task<Application> GetApplicationByIdAsync(object id)
+        public async Task<Application> GetByIdAsync(int id)
         {
             return await unitOfWork.Applications.GetByIdAsync(id);
         }
 
-        public Task<IEnumerable<Application>> GetApplicationsAsync()
+        public Task<IEnumerable<Application>> GetAllAsync()
         {
             throw new NotImplementedException();
         }

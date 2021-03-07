@@ -7,11 +7,11 @@ namespace Restaurant_Website.Services.Interfaces
 {
     public interface IVacancyService
     {
-        Task<IEnumerable<VacancyLang>> GetVacancyTranslationsAsync(string lang);
-        Task<Vacancy> GetVacancyByIdAsync(int id);
+        Task<IEnumerable<VacancyLang>> GetTranslationsAsync(string lang);
+        Task<Vacancy> GetByIdAsync(int id);
 
-        Task<bool> CreateVacancyAsync(Vacancy vacancy);
-        Task<bool> EditVacancyAsync(Vacancy vacancy);
-        bool DeleteVacancy(Vacancy vacancy);
+        Task<bool> CreateAsync(Vacancy vacancy);
+        Task<bool> EditAsync(Vacancy vacancy);
+        Task<bool> DeleteAsync(Vacancy vacancy);
     }
 }

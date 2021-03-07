@@ -12,7 +12,7 @@ using Restaurant_Website.Domain.Core;
 
 namespace Restaurant_Website.Controllers
 {
-    [ViewComponent(Name = "LanguagesComponent")]
+    [ViewComponent(Name = "Languages")]
     public class LanguagesController : Controller
     {
         private readonly ILanguageService languageService;
@@ -23,12 +23,12 @@ namespace Restaurant_Website.Controllers
         {
             this.languageService = languageService;
             this.accessor = accessor;
-            this.defaultLanguage = languageService.GetDefaultLanguageCodeAsync(accessor.HttpContext).Result;
+            this.defaultLanguage = languageService.GetDefaultCodeAsync(accessor.HttpContext).Result;
         }
 
         public async Task<RedirectResult> ChangeLanguage(string lang)
         {
-            string language = (await languageService.GetLanguageAsync(lang))?.Code ?? defaultLanguage;
+            string language = (await languageService.GetByCodeAsync(lang))?.Code ?? defaultLanguage;
 
             if (HttpContext.Request.Cookies["culture"] != null)
             {
@@ -42,7 +42,7 @@ namespace Restaurant_Website.Controllers
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var languages = (await languageService.GetLanguagesAsync()).OrderByDescending(t => t.Code == (accessor.HttpContext.Request.Cookies["culture"] ?? defaultLanguage));
+            var languages = (await languageService.GetAllAsync()).OrderByDescending(t => t.Code == (accessor.HttpContext.Request.Cookies["culture"] ?? defaultLanguage));
 
             IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Language, LanguageViewModel>()).CreateMapper();
             var languageViewModels = mapper.Map<IEnumerable<LanguageViewModel>>(languages);

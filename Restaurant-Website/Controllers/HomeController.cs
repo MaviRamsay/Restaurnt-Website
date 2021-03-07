@@ -34,6 +34,16 @@ namespace Restaurant_Website.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Download(int id)
+        {
+            var application = await applicationService.GetByIdAsync(id);
+
+            if (!(application is null))
+                return File(application.Cv, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+            else 
+                return NotFound();
+        }
+
         [Route("about")]
         public ViewResult About()
         {
@@ -46,7 +56,7 @@ namespace Restaurant_Website.Controllers
         {
             string lang = HttpContext.Request.Cookies["culture"] ?? HttpContext.Items["culture"].ToString();
 
-            var translations = await vacancyService.GetVacancyTranslationsAsync(lang);
+            var translations = await vacancyService.GetTranslationsAsync(lang);
 
             var selectListItems = new SelectList (translations, 
                         nameof(VacancyLang.Vacancy.Id), 
@@ -66,7 +76,7 @@ namespace Restaurant_Website.Controllers
             if(ModelState.IsValid)
             {
                 var cv = await applicationService.ConvertCvToArrayAsync(applicationViewModel.Cv);
-                var vacancy = await vacancyService.GetVacancyByIdAsync(applicationViewModel.Vacancy);
+                var vacancy = await vacancyService.GetByIdAsync(applicationViewModel.Vacancy);
 
                 IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationViewModel, Application>()
                     .ForMember(m => m.SubmitDate, opt => opt.MapFrom((s, d) => d.SubmitDate = DateTime.Now))
@@ -74,7 +84,7 @@ namespace Restaurant_Website.Controllers
                     .ForMember(m => m.Cv, opt => opt.MapFrom((s, d) => d.Cv = cv)))
                     .CreateMapper();
                 
-                await applicationService.CreateApplicationAsync(mapper.Map<Application>(applicationViewModel));
+                await applicationService.CreateAsync(mapper.Map<Application>(applicationViewModel));
 
                 return View("Complete");
             }

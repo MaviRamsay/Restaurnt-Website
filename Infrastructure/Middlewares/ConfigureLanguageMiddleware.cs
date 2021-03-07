@@ -24,12 +24,12 @@ namespace Restaurant_Website.Infrastructure.Middlewares
 
             if (!(clientLanguage is null))
             {
-                language = (await languageService.GetLanguageAsync(clientLanguage))?.Code;
+                language = (await languageService.GetByCodeAsync(clientLanguage))?.Code;
             }
 
             if (language is null)
             {
-                language = await languageService.GetDefaultLanguageCodeAsync(context);
+                language = await languageService.GetDefaultCodeAsync(context);
 
                 context.Items["culture"] = language; // for current request 
                 context.Response.Cookies.Append("culture", language); // for next request

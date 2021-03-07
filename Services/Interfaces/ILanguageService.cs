@@ -7,12 +7,12 @@ namespace Restaurant_Website.Services.Interfaces
 {
     public interface ILanguageService
     {
-        Task<bool> CreateLanguageAsync();
-        Task<bool> EditLanguageAsync();
-        bool DeleteLanguage();
+        Task<bool> CreateAsync();
+        Task<bool> EditAsync();
+        Task<bool> DeleteAsync();
 
-        Task<Language> GetLanguageAsync(string code);
-        Task<string> GetDefaultLanguageCodeAsync(HttpContext context);
-        Task<IEnumerable<Language>> GetLanguagesAsync();
+        Task<Language> GetByCodeAsync(string code);
+        Task<string> GetDefaultCodeAsync(HttpContext context);
+        Task<IEnumerable<Language>> GetAllAsync();
     }
 }
