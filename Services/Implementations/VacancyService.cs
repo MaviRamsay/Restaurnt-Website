@@ -34,7 +34,7 @@ namespace Restaurant_Website.Services.Implementations
 
         public async Task<IEnumerable<VacancyLang>> GetTranslationsAsync(string lang)
         {
-            return await unitOfWork.VacancyTranslations.GetAllAsync(t => t.Vacancy.IsActive == true && t.Language.Code == lang, includeProperties: "Vacancy");
+            return await unitOfWork.VacancyTranslations.GetAllAsync(t => t.Vacancy.IsActive == true && t.Language.Code == lang, includeProperties: nameof(Vacancy));
         }
 
         public async Task<Vacancy> GetByIdAsync(int id)
