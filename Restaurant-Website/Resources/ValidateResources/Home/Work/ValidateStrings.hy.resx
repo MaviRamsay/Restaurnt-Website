@@ -123,6 +123,9 @@
   <data name="Email" xml:space="preserve">
     <value>Մուտքագրե՛ք ճիշտ էլ․ փոստ (ցանկալի է պերսոնալ տիպի)</value>
   </data>
+  <data name="FileExtension" xml:space="preserve">
+    <value>Թույլատրվում է միայն .doc, .docx, .pdf ֆորմատ</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>Այս դաշտը լրացնելը պարտադիր է</value>
   </data>

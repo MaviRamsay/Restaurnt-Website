@@ -45,17 +45,5 @@ namespace Restaurant_Website.Services.Implementations
         {
             throw new NotImplementedException();
         }
-
-        public async Task<byte[]> ConvertCvToArrayAsync(IFormFile file)
-        {
-            byte[] cv;
-            using (var ms = new MemoryStream())
-            {
-                await file.CopyToAsync(ms);
-                cv = ms.ToArray();
-            }
-
-            return cv;
-        }
     }
 }

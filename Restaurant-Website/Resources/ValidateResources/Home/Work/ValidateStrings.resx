@@ -123,6 +123,9 @@
   <data name="Email" xml:space="preserve">
     <value>Enter correct Email (personal type is desirable)</value>
   </data>
+  <data name="FileExtension" xml:space="preserve">
+    <value>Allowed only .doc, .docx, .pdf formats</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>Please fill this field</value>
   </data>

@@ -9,8 +9,8 @@ namespace Restaurant_Website.Domain.Interfaces
         IRepositoty<Application> Applications { get; }
         IRepositoty<Vacancy> Vacancies { get; }
         IRepositoty<VacancyLang> VacancyTranslations { get; }
+        IRepositoty<UploadedFile> UploadedFiles { get; }
 
-        void Commit();
         Task CommitAsync();
     }
 }

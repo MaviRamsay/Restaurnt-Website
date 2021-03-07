@@ -10,6 +10,7 @@ namespace Restaurant_Website.Infrastructure.Data.Context
         public DbSet<Vacancy> Vacancies { get; set; }
         public DbSet<VacancyLang> VacancyTranslations { get; set; }
         public DbSet<Application> Applications { get; set; }
+        public DbSet<UploadedFile> UploadedFiles { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> dbContext)
             : base(dbContext)

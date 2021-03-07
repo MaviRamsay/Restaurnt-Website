@@ -27,6 +27,7 @@ namespace Restaurant_Website.Models
         public int Vacancy { get; set; }
 
         [Required(ErrorMessageResourceName = nameof(ValidateStrings.Required), ErrorMessageResourceType = typeof(ValidateStrings))]
+        //[FileExtensions(Extensions = "doc,docx,pdf", ErrorMessageResourceName = nameof(ValidateStrings.FileExtension), ErrorMessageResourceType = typeof(ValidateStrings))]
         public IFormFile Cv { get; set; }
     }
 }

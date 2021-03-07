@@ -12,7 +12,5 @@ namespace Restaurant_Website.Services.Interfaces
 
         Task<bool> CreateAsync(Application application);
         Task<bool> DeleteAsync(Application application);
-
-        Task<byte[]> ConvertCvToArrayAsync(IFormFile file);
     }
 }

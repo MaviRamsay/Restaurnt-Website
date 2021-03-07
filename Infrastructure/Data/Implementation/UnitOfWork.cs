@@ -17,6 +17,7 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         private IRepositoty<Application> applicationRepository;
         private IRepositoty<Vacancy> vacancyRepository;
         private IRepositoty<VacancyLang> vacancyLangRepository;
+        private IRepositoty<UploadedFile> uploadedFilesRepository;
 
         public UnitOfWork(ApplicationContext context) => this.context = context;
 
@@ -24,8 +25,8 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         public IRepositoty<Application> Applications { get => applicationRepository ??= new BaseRepository<Application>(context); }
         public IRepositoty<Vacancy> Vacancies { get => vacancyRepository ??= new BaseRepository<Vacancy>(context); }
         public IRepositoty<VacancyLang> VacancyTranslations { get => vacancyLangRepository ??= new BaseRepository<VacancyLang>(context); }
+        public IRepositoty<UploadedFile> UploadedFiles { get => uploadedFilesRepository ??= new BaseRepository<UploadedFile>(context); }
 
-        public void Commit() => context.SaveChanges();
         public async Task CommitAsync() => await context.SaveChangesAsync();
 
         public async ValueTask DisposeAsync()

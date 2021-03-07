@@ -9,8 +9,6 @@ using Restaurant_Website.Infrastructure.Middlewares;
 using Restaurant_Website.Infrastructure.Data.Implementation;
 using Restaurant_Website.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
-using System;
 using Restaurant_Website.Services.Interfaces;
 using Restaurant_Website.Services.Implementations;
 
@@ -46,6 +44,7 @@ namespace Restaurant_Website
             services.AddScoped<ILanguageService, LanguageService>();
             services.AddScoped<IVacancyService, VacancyService>();
             services.AddScoped<IApplicationService, ApplicationService>();
+            services.AddScoped<IUploadFileService, UploadFileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

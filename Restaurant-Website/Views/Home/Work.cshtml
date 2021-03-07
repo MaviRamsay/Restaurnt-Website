@@ -47,7 +47,7 @@
             <label for="cv">@Resources.Home.Work.Work.CvLabel</label><br>
             <div><span asp-validation-for="Cv" style="color: darkred"></span></div>
             <div>
-                <input asp-for="Cv" type="file" required>
+                <input asp-for="Cv" type="file" accept=".doc,.docx,.pdf" required>
 
                 <button type="submit">
                     @Resources.Home.Work.Work.Submit

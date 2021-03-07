@@ -10,8 +10,8 @@ using Restaurant_Website.Infrastructure.Data.Context;
 namespace Restaurant_Website.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210227165952_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210307115105_RegularMigration")]
+    partial class RegularMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,11 +28,11 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
 
-                    b.Property<byte[]>("Cv")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<int?>("CvId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -50,6 +50,8 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CvId");
 
                     b.HasIndex("VacancyId");
 
@@ -75,6 +77,30 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.UploadedFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("AbsoluteName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Content")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("ContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UploadedFiles");
                 });
 
             modelBuilder.Entity("Restaurant_Website.Domain.Core.Vacancy", b =>
@@ -119,9 +145,15 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Restaurant_Website.Domain.Core.Application", b =>
                 {
+                    b.HasOne("Restaurant_Website.Domain.Core.UploadedFile", "Cv")
+                        .WithMany()
+                        .HasForeignKey("CvId");
+
                     b.HasOne("Restaurant_Website.Domain.Core.Vacancy", "Vacancy")
                         .WithMany()
                         .HasForeignKey("VacancyId");
+
+                    b.Navigation("Cv");
 
                     b.Navigation("Vacancy");
                 });

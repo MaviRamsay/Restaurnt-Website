@@ -14,34 +14,26 @@ namespace Restaurant_Website.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> logger;
         private readonly IApplicationService applicationService;
         private readonly IVacancyService vacancyService;
-        private readonly ILogger<HomeController> logger;
+        private readonly IUploadFileService uploadFileService;
 
         public HomeController(ILogger<HomeController> logger, 
                                 IApplicationService applicationService, 
-                                IVacancyService vacancyService)
+                                IVacancyService vacancyService,
+                                IUploadFileService uploadFileService)
         {
             this.logger = logger;
             this.applicationService = applicationService;
             this.vacancyService = vacancyService;
-
+            this.uploadFileService = uploadFileService;
         }
 
         [Route("")]
         public ViewResult Index()
         {
             return View();
-        }
-
-        public async Task<IActionResult> Download(int id)
-        {
-            var application = await applicationService.GetByIdAsync(id);
-
-            if (!(application is null))
-                return File(application.Cv, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-            else 
-                return NotFound();
         }
 
         [Route("about")]
@@ -75,8 +67,8 @@ namespace Restaurant_Website.Controllers
         {
             if(ModelState.IsValid)
             {
-                var cv = await applicationService.ConvertCvToArrayAsync(applicationViewModel.Cv);
                 var vacancy = await vacancyService.GetByIdAsync(applicationViewModel.Vacancy);
+                var cv = await uploadFileService.UploadAsync(applicationViewModel.Cv);
 
                 IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ApplicationViewModel, Application>()
                     .ForMember(m => m.SubmitDate, opt => opt.MapFrom((s, d) => d.SubmitDate = DateTime.Now))
@@ -90,6 +82,14 @@ namespace Restaurant_Website.Controllers
             }
              
             return await Work();
+        }
+
+        public async Task<IActionResult> Download(int id)
+        {
+            var file = await uploadFileService.GetByIdAsync(id);
+
+            if (file is null) return NotFound();
+            else return File(file.Content, file.ContentType, file.AbsoluteName);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

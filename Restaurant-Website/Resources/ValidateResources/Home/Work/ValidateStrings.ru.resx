@@ -123,6 +123,9 @@
   <data name="Email" xml:space="preserve">
     <value>Укажите верную эл. почту (желательно персонального типа)!</value>
   </data>
+  <data name="FileExtension" xml:space="preserve">
+    <value>Разрешаются только .doc, .docx, .pdf форматы</value>
+  </data>
   <data name="Required" xml:space="preserve">
     <value>Заполните это поле!</value>
   </data>

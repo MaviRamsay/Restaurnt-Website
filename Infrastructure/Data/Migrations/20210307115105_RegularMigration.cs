@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Restaurant_Website.Infrastructure.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class RegularMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,22 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Languages", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UploadedFiles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AbsoluteName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContentType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Content = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UploadedFiles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,11 +63,17 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: false),
                     VacancyId = table.Column<int>(type: "int", nullable: true),
-                    Cv = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
+                    CvId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Applications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Applications_UploadedFiles_CvId",
+                        column: x => x.CvId,
+                        principalTable: "UploadedFiles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Applications_Vacancies_VacancyId",
                         column: x => x.VacancyId,
@@ -88,6 +110,11 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Applications_CvId",
+                table: "Applications",
+                column: "CvId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Applications_VacancyId",
                 table: "Applications",
                 column: "VacancyId");
@@ -110,6 +137,9 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "VacancyTranslations");
+
+            migrationBuilder.DropTable(
+                name: "UploadedFiles");
 
             migrationBuilder.DropTable(
                 name: "Languages");

@@ -79,6 +79,15 @@ namespace Resources.ValidateResources.Home.Work {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Allowed only .doc, .docx, .pdf formats.
+        /// </summary>
+        public static string FileExtension {
+            get {
+                return ResourceManager.GetString("FileExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Please fill this field.
         /// </summary>
         public static string Required {
