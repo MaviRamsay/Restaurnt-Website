@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
 using Restaurant_Website.Services.Interfaces;
 using AutoMapper;
+using System.Collections.Generic;
 
 namespace Restaurant_Website.Controllers
 {
@@ -47,12 +48,16 @@ namespace Restaurant_Website.Controllers
         public async Task<ViewResult> Work()
         {
             string lang = HttpContext.Request.Cookies["culture"] ?? HttpContext.Items["culture"].ToString();
-
             var translations = await vacancyService.GetTranslationsAsync(lang);
 
-            var selectListItems = new SelectList (translations, 
-                        nameof(VacancyLang.Vacancy.Id), 
-                        nameof(VacancyLang.VacancyName)
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<VacancyLang, VacancyLangViewModel>()
+                                .ForMember(m => m.Value, opt => opt.MapFrom((s, d) => d.Value = s.Vacancy.Id)))
+                                .CreateMapper();
+            var translationsVM = mapper.Map<IEnumerable<VacancyLangViewModel>>(translations);
+
+            var selectListItems = new SelectList (translationsVM, 
+                        nameof(VacancyLangViewModel.Value), 
+                        nameof(VacancyLangViewModel.VacancyName)
             );
 
             ViewBag.Vacancies = selectListItems;   

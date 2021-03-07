@@ -11,7 +11,6 @@ using Restaurant_Website.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Website.Services.Interfaces;
 using Restaurant_Website.Services.Implementations;
-
 namespace Restaurant_Website
 {
     public class Startup

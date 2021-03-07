@@ -42,7 +42,7 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
             }
 
             if (!applicationContext.VacancyTranslations.Any())
-            {
+            { 
                 IEnumerable<VacancyLang> vacancies = new List<VacancyLang>
                 {
                     // cooker

@@ -10,7 +10,7 @@ using Restaurant_Website.Infrastructure.Data.Context;
 namespace Restaurant_Website.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210307115105_RegularMigration")]
+    [Migration("20210307154426_RegularMigration")]
     partial class RegularMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
