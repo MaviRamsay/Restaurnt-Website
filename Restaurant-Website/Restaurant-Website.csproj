@@ -46,6 +46,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Layout.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\UIResources\Menu\Index.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\ValidateResources\Home\Work\ValidateStrings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -101,6 +106,19 @@
     <EmbeddedResource Update="Resources\UIResources\Layout\Layout.ru.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <CustomToolNamespace>Resources.Layout</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\UIResources\Menu\Index.hy.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>Resources.Menu</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\UIResources\Menu\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources.Menu</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\UIResources\Menu\Index.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>Resources.Menu</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ValidateResources\Home\Work\ValidateStrings.hy.resx">
       <CustomToolNamespace>Resources.ValidateResources.Home.Work</CustomToolNamespace>

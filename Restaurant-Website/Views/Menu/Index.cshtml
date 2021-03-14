@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model IEnumerable<Restaurant_Website.Models.Menu.ProductCategoryViewModel>
+
+<link rel="stylesheet" href="~/css/menu.css" />
+
+<section id="menu">
+    <p id="textParagraph3">@Resources.Menu.Index.Header</p>
+</section>
+
+<section id="menuItems">
+    <div class="imageContainer">
+        @foreach (var item in Model)
+        {
+            <div class="menuImage" style="background-image: url(@Url.Action("GetImage", "MenuController", new { file = item.Image }))">
+                <div class="menuImageName">
+                    <h3>
+                        @item.Name
+                    </h3>
+                </div>
+            </div>
+        }
+    </div>
+</section>

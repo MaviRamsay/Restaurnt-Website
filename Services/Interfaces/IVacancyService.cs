@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Restaurant_Website.Domain.Core;
 
 namespace Restaurant_Website.Services.Interfaces
 {
     public interface IVacancyService
     {
+        Task<IEnumerable<Vacancy>> GetAllAsync(bool onlyActive);
         Task<IEnumerable<VacancyLang>> GetTranslationsAsync(string lang);
         Task<Vacancy> GetByIdAsync(int id);
 

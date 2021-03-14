@@ -23,7 +23,7 @@
         <ul class="noselect">
             <li><a asp-action="Index">@Resources.Layout.Layout.NavHome</a></li>
             <li><a asp-action="About">@Resources.Layout.Layout.NavAbout</a></li>
-            <li><a href="">@Resources.Layout.Layout.NavMenu</a></li>
+            <li><a asp-controller="Menu" asp-action="Index">@Resources.Layout.Layout.NavMenu</a></li>
             <li><a asp-action="Work">@Resources.Layout.Layout.NavWork</a></li>
 
         </ul>

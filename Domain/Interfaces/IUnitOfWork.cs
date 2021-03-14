@@ -11,6 +11,11 @@ namespace Restaurant_Website.Domain.Interfaces
         IRepositoty<VacancyLang> VacancyTranslations { get; }
         IRepositoty<UploadedFile> UploadedFiles { get; }
 
+        IRepositoty<Product> Products { get; }
+        IRepositoty<ProductCategory> ProductCategories { get; }
+        IRepositoty<ProductLang> ProductTranslations { get; }
+        IRepositoty<ProductCategoryLang> ProductCategoryTranslations { get; }
+
         Task CommitAsync();
     }
 }

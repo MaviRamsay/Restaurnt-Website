@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using Restaurant_Website.Services.Interfaces;
 using AutoMapper;
 using System.Collections.Generic;
+using Restaurant_Website.Models.Home;
+using System.Linq;
 
 namespace Restaurant_Website.Controllers
 {
@@ -43,21 +45,16 @@ namespace Restaurant_Website.Controllers
             return View();
         }
 
-        [HttpGet]
-        [Route("work")]
+        [HttpGet, Route("work")]
         public async Task<ViewResult> Work()
         {
             string lang = HttpContext.Request.Cookies["culture"] ?? HttpContext.Items["culture"].ToString();
+
             var translations = await vacancyService.GetTranslationsAsync(lang);
 
-            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<VacancyLang, VacancyLangViewModel>()
-                                .ForMember(m => m.Value, opt => opt.MapFrom((s, d) => d.Value = s.Vacancy.Id)))
-                                .CreateMapper();
-            var translationsVM = mapper.Map<IEnumerable<VacancyLangViewModel>>(translations);
-
-            var selectListItems = new SelectList (translationsVM, 
-                        nameof(VacancyLangViewModel.Value), 
-                        nameof(VacancyLangViewModel.VacancyName)
+            SelectList selectListItems = new SelectList (translations, 
+                        nameof(VacancyLang.VacancyId), 
+                        nameof(VacancyLang.VacancyName)
             );
 
             ViewBag.Vacancies = selectListItems;   
@@ -65,9 +62,7 @@ namespace Restaurant_Website.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Route("work")]
-        [ValidateAntiForgeryToken]
+        [HttpPost, Route("work"), ValidateAntiForgeryToken]
         public async Task<ViewResult> Work(ApplicationViewModel applicationViewModel)
         {
             if(ModelState.IsValid)
@@ -87,14 +82,6 @@ namespace Restaurant_Website.Controllers
             }
              
             return await Work();
-        }
-
-        public async Task<IActionResult> Download(int id)
-        {
-            var file = await uploadFileService.GetByIdAsync(id);
-
-            if (file is null) return NotFound();
-            else return File(file.Content, file.ContentType, file.AbsoluteName);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

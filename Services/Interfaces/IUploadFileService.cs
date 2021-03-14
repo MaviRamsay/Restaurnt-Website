@@ -9,6 +9,6 @@ namespace Restaurant_Website.Services.Interfaces
         Task<UploadedFile> GetByIdAsync(int id);
 
         Task<UploadedFile> UploadAsync(IFormFile file);
-        Task<bool> DeleteAsync(int id);
+        Task<bool> DeleteAsync(UploadedFile file);
     }
 }

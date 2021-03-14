@@ -10,7 +10,7 @@ using Restaurant_Website.Infrastructure.Data.Context;
 namespace Restaurant_Website.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210307154426_RegularMigration")]
+    [Migration("20210308083417_RegularMigration")]
     partial class RegularMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -165,12 +165,17 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                         .HasForeignKey("LanguageId");
 
                     b.HasOne("Restaurant_Website.Domain.Core.Vacancy", "Vacancy")
-                        .WithMany()
+                        .WithMany("Translations")
                         .HasForeignKey("VacancyId");
 
                     b.Navigation("Language");
 
                     b.Navigation("Vacancy");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.Vacancy", b =>
+                {
+                    b.Navigation("Translations");
                 });
 #pragma warning restore 612, 618
         }

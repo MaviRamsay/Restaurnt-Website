@@ -42,6 +42,7 @@
             <label for="job">@Resources.Home.Work.Work.StaffLabel</label><br>
             <div><span asp-validation-for="Vacancy" style="color: darkred"></span></div>
             @Html.DropDownListFor(model => model.Vacancy, ViewBag.Vacancies as SelectList, new { htmlAttributes = new { id = "job" } })
+
             <br />
 
             <label for="cv">@Resources.Home.Work.Work.CvLabel</label><br>

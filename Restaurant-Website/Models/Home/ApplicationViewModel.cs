@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Resources.ValidateResources.Home.Work;
 using Microsoft.AspNetCore.Http;
 
-namespace Restaurant_Website.Models
+namespace Restaurant_Website.Models.Home
 {
     public class ApplicationViewModel
     {

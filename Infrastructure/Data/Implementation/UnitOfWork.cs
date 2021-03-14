@@ -19,6 +19,11 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         private IRepositoty<VacancyLang> vacancyLangRepository;
         private IRepositoty<UploadedFile> uploadedFilesRepository;
 
+        private IRepositoty<Product> productRepository;
+        private IRepositoty<ProductCategory> productCategoryRepository;
+        private IRepositoty<ProductLang> productLangRepository;
+        private IRepositoty<ProductCategoryLang> productCategoryLangRepository;
+
         public UnitOfWork(ApplicationContext context) => this.context = context;
 
         public IRepositoty<Language> Languages { get => languageRepository ??= new BaseRepository<Language>(context); }
@@ -26,6 +31,11 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         public IRepositoty<Vacancy> Vacancies { get => vacancyRepository ??= new BaseRepository<Vacancy>(context); }
         public IRepositoty<VacancyLang> VacancyTranslations { get => vacancyLangRepository ??= new BaseRepository<VacancyLang>(context); }
         public IRepositoty<UploadedFile> UploadedFiles { get => uploadedFilesRepository ??= new BaseRepository<UploadedFile>(context); }
+
+        public IRepositoty<Product> Products { get => productRepository ??= new BaseRepository<Product>(context); }
+        public IRepositoty<ProductCategory> ProductCategories { get => productCategoryRepository ??= new BaseRepository<ProductCategory>(context); }
+        public IRepositoty<ProductLang> ProductTranslations { get => productLangRepository ??= new BaseRepository<ProductLang>(context); }
+        public IRepositoty<ProductCategoryLang> ProductCategoryTranslations { get => productCategoryLangRepository ??= new BaseRepository<ProductCategoryLang>(context); }
 
         public async Task CommitAsync() => await context.SaveChangesAsync();
 

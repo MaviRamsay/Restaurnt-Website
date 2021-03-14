@@ -1,6 +1,4 @@
-﻿using Restaurant_Website.Domain.Core;
-
-namespace Restaurant_Website.Models
+﻿namespace Restaurant_Website.Models.Home
 {
     public class LanguageViewModel
     {

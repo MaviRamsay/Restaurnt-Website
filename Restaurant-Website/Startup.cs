@@ -4,13 +4,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Restaurant_Website.Domain.Interfaces;
-using Restaurant_Website.Domain.Core;
 using Restaurant_Website.Infrastructure.Middlewares;
 using Restaurant_Website.Infrastructure.Data.Implementation;
 using Restaurant_Website.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Website.Services.Interfaces;
 using Restaurant_Website.Services.Implementations;
+
 namespace Restaurant_Website
 {
     public class Startup
@@ -44,6 +44,7 @@ namespace Restaurant_Website
             services.AddScoped<IVacancyService, VacancyService>();
             services.AddScoped<IApplicationService, ApplicationService>();
             services.AddScoped<IUploadFileService, UploadFileService>();
+            services.AddScoped<IProductCategoryService, ProductCategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

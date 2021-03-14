@@ -22,17 +22,17 @@ namespace Restaurant_Website.Services.Implementations
             this.configuration = configuration;
         }
 
-        public async Task<bool> CreateAsync()
+        public async Task<bool> CreateAsync(Language language)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> DeleteAsync()
+        public async Task<bool> DeleteAsync(Language language)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> EditAsync()
+        public async Task<bool> EditAsync(Language language)
         {
             throw new NotImplementedException();
         }

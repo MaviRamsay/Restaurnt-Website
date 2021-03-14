@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Http;
-using Restaurant_Website.Models;
 using Restaurant_Website.Services.Interfaces;
 using AutoMapper;
 using Restaurant_Website.Domain.Core;
+using Restaurant_Website.Models.Home;
 
 namespace Restaurant_Website.Controllers
 {

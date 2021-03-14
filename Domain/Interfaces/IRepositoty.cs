@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,7 +13,9 @@ namespace Restaurant_Website.Domain.Interfaces
         Task<T> GetByIdAsync(object id);
         Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null,
                             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-                            string includeProperties = "");
+                            Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null);
+        Task<bool> ContainsAsync(T item);
+
         void Insert(T item);
         Task InsertAsync(T item);
         void Update(T item);

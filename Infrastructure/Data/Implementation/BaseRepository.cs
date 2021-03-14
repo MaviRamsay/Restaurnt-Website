@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Website.Domain.Interfaces;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Restaurant_Website.Infrastructure.Data.Implementation
 {
@@ -28,9 +29,14 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
             return await Entities.FindAsync(id);
         }
 
+        public virtual async Task<bool> ContainsAsync(T item)
+        {
+            return await Entities.ContainsAsync(item);
+        }
+
         public async virtual Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, 
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, 
-            string includeProperties = "")
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
         {
             IQueryable<T> query = Entities;
 
@@ -39,13 +45,9 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
                 query = query.Where(filter);
             }
             
-            if (!(includeProperties is null))
+            if (!(include is null))
             {
-                foreach (var includeProperty in includeProperties.Split
-                    (',', StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(includeProperty);
-                }
+                query = include(query);
             }
 
 

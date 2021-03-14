@@ -41,16 +41,15 @@ namespace Restaurant_Website.Services.Implementations
         /// </summary>
         /// <param name="id">File id</param>
         /// <returns>True - file successfully deleted. False - file doesn't exists</returns>
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(UploadedFile file)
         {
-            if ((await unitOfWork.UploadedFiles.GetByIdAsync(id)) is null) {
-                return false;
-            }
-            else {
-                unitOfWork.UploadedFiles.Delete(id);
-
+            if (await unitOfWork.UploadedFiles.ContainsAsync(file)) 
+            {
+                unitOfWork.UploadedFiles.Delete(file);
                 return true;
             }
+
+            return false;
         }
 
         public async Task<UploadedFile> GetByIdAsync(int id)
