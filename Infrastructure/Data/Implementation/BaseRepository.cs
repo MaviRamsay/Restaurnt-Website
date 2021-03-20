@@ -19,9 +19,16 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
             this.context = context;
             Entities = context.Set<T>();
         }
-        public virtual async Task<T> GetAsync(Expression<Func<T, bool>> filter)
+        public virtual async Task<T> GetAsync(Expression<Func<T, bool>> filter, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
         {
-            return await Entities.FirstOrDefaultAsync(filter);
+            IQueryable<T> entities = Entities;
+
+            if (!(include is null))
+            {
+                entities = include(entities);
+            }
+
+            return await entities.FirstOrDefaultAsync(filter);
         }
 
         public virtual async Task<T> GetByIdAsync(object id)

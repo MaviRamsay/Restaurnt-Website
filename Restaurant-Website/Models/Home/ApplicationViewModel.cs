@@ -20,7 +20,7 @@ namespace Restaurant_Website.Models.Home
         public string Email { get; set; }
 
         [Required(ErrorMessageResourceName = nameof(ValidateStrings.Required), ErrorMessageResourceType = typeof(ValidateStrings))]
-        [Range(14, 65, ErrorMessageResourceName = nameof(ValidateStrings.Age), ErrorMessageResourceType = typeof(ValidateStrings))]
+        [Range(0, 100, ErrorMessageResourceName = nameof(ValidateStrings.Age), ErrorMessageResourceType = typeof(ValidateStrings))]
         public int Age { get; set; }
 
         [Required(ErrorMessageResourceName = nameof(ValidateStrings.Required), ErrorMessageResourceType = typeof(ValidateStrings))]

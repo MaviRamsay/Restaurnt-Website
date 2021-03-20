@@ -50,7 +50,7 @@ namespace Restaurant_Website.Services.Implementations
 
         public async Task<Vacancy> GetByIdAsync(int id)
         {
-            return await unitOfWork.Vacancies.GetByIdAsync(id);
+            return await unitOfWork.Vacancies.GetAsync(t => t.Id == id, inc => inc.Include(entity => entity.Translations));
         }
     }
 }

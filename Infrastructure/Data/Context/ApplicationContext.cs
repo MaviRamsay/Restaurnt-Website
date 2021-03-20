@@ -11,8 +11,6 @@ namespace Restaurant_Website.Infrastructure.Data.Context
         public DbSet<Application> Applications { get; set; }
         public DbSet<UploadedFile> UploadedFiles { get; set; }
 
-        // will be removed to another context. TODO
-
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ProductCategoryLang> ProductCategoryTranslations { get; set; }
         public DbSet<Product> Products { get; set; }

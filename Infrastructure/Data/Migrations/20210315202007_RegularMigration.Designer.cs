@@ -10,7 +10,7 @@ using Restaurant_Website.Infrastructure.Data.Context;
 namespace Restaurant_Website.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210308083417_RegularMigration")]
+    [Migration("20210315202007_RegularMigration")]
     partial class RegularMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,101 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ImageId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
+
+                    b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductCategoryLang", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("ProductCategoryTranslations");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductLang", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductTranslations");
                 });
 
             modelBuilder.Entity("Restaurant_Website.Domain.Core.UploadedFile", b =>
@@ -158,6 +253,60 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                     b.Navigation("Vacancy");
                 });
 
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.Product", b =>
+                {
+                    b.HasOne("Restaurant_Website.Domain.Core.ProductCategory", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("Restaurant_Website.Domain.Core.UploadedFile", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductCategory", b =>
+                {
+                    b.HasOne("Restaurant_Website.Domain.Core.UploadedFile", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductCategoryLang", b =>
+                {
+                    b.HasOne("Restaurant_Website.Domain.Core.ProductCategory", "Category")
+                        .WithMany("Translations")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("Restaurant_Website.Domain.Core.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductLang", b =>
+                {
+                    b.HasOne("Restaurant_Website.Domain.Core.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId");
+
+                    b.HasOne("Restaurant_Website.Domain.Core.Product", "Product")
+                        .WithMany("Translations")
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Restaurant_Website.Domain.Core.VacancyLang", b =>
                 {
                     b.HasOne("Restaurant_Website.Domain.Core.Language", "Language")
@@ -171,6 +320,18 @@ namespace Restaurant_Website.Infrastructure.Data.Migrations
                     b.Navigation("Language");
 
                     b.Navigation("Vacancy");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.Product", b =>
+                {
+                    b.Navigation("Translations");
+                });
+
+            modelBuilder.Entity("Restaurant_Website.Domain.Core.ProductCategory", b =>
+                {
+                    b.Navigation("Products");
+
+                    b.Navigation("Translations");
                 });
 
             modelBuilder.Entity("Restaurant_Website.Domain.Core.Vacancy", b =>

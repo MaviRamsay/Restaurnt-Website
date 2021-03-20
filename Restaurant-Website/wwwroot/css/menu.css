@@ -1,139 +1,123 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+.u-section-1 {
+  background-image: none;
 }
-body {
-  background-color: #262626;
+
+.u-section-1 .u-sheet-1 {
+  min-height: 647px;
 }
-#menu {
-  height: 80vh;
-  background-image: url(../images/loija-nguyen-NYBnDWeOX2c-unsplash.jpg);
-  background-position: center;
-  background-size: cover;
+
+.u-section-1 .u-btn-1 {
+  border-style: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin: 20px 0 0;
+  padding: 8px 33px;
 }
-#menu #textParagraph3 {
-  font-size: 40px;
-  text-align: center;
-  padding-top: 250px;
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 5px;
-  text-shadow: 2px 2px 2px black;
+
+.u-section-1 .u-list-1 {
+  min-height: 607px;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  width: 364px;
+  grid-gap: 10px 10px;
+  margin: 20px auto 20px 0;
 }
-#menuItems {
-  width: 100%;
-  display: grid;
-  margin: 3px 0px;
-  grid-template-columns: repeat(4, 1fr);
+
+.u-section-1 .u-container-layout-1 {
+  padding: 30px;
 }
-#menuItems .imageContainer {
-  width: 379px;
-  height: 350px;
-  overflow: hidden;
-  position: relative;
+
+.u-section-1 .u-image-1 {
+  height: 347px;
+  margin: 0 auto 0 0;
 }
-#menuItems .imageContainer ::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: rgba(17, 17, 17, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-#menuItems .imageContainer :hover {
-  cursor: pointer;
-  transform: scale(1.155);
-  transition: all 4s cubic-bezier(0.235, 0.82, 0.165, 1);
-}
-#menuItems .imageContainer :hover::after {
-  background-color: rgba(37, 37, 37, 0.5);
-}
-#menuItems .imageContainer :hover:hover .menuImageName {
-  opacity: 1;
-  transition: all 0.6s ease;
-}
-#menuItems .menuImage {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-position: center;
-  background-size: cover;
-}
-#menuItems .menuImage :hover {
-  transform: none;
-}
-#menuItems .menuImage .menuImageName {
-  opacity: 0;
-}
-#menuItems .menuImage .menuImageName h3 {
-  font-size: 30px;
-  font-family: 'Great Vibes', cursive;
-  letter-spacing: 4px;
-  color: white;
-  text-shadow: 1px 1px 1px black;
-  font-weight: 500;
-}
-#menuItems #image1 {
-  background-image: url(images/loija-nguyen-NYBnDWeOX2c-unsplash.jpg);
-}
-#menuItems #image2 {
-  background-image: url(images/luisa-brimble-vIm26fn_QKg-unsplash.jpg);
-}
-#menuItems #image3 {
-  background-image: url(images/bladimir-garcia-7pnSF4mqlVQ-unsplash.jpg);
-}
-#menuItems #image4 {
-  background-image: url(images/proriat-hospitality-lwoTuByIuC4-unsplash.jpg);
-}
-footer {
-  border-top: 2px solid rgba(253, 75, 10, 0.7);
-  height: 15vh;
-  display: flex;
-  justify-content: space-around;
-  padding: 35px;
-  color: #858282;
-  background-color: rgba(17, 17, 17, 0.9);
-  font-family: 'Roboto', sans-serif;
-}
-footer i {
-  color: #858282;
-}
-footer #logos {
-  display: flex;
-  justify-content: space-around;
-}
-footer p {
+
+.u-section-1 .u-text-1 {
+  font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 18px;
-  font-weight: bold;
+  margin: 20px 69px 0 0;
 }
-main {
-  text-align: center;
+
+.u-section-1 .u-text-2 {
+  margin: 20px auto 0 0;
 }
-main #menuList {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  color: black;
-  font-size: 18px;
-  background-color: #ccc;
-  text-align: left;
-  padding-top: 20px;
+
+.u-section-1 .u-text-3 {
+  font-size: 1.875rem;
+  font-weight: 900;
+  margin: 20px 225px 0 0;
 }
-main #menuList div {
-  padding-left: 20px;
+
+.u-section-1 .u-btn-2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: none;
+  border-style: none;
+  margin: -45px 0 0 auto;
 }
-main #menuList h5 {
-  color: black;
-  font-size: 20px;
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-list-1 {
+    height: auto;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-right: initial;
+    margin-left: initial;
+  }
 }
-main #menuList p {
-  color: #504e4e;
-  font-weight: bold;
-  padding-top: 15px;
+
+@media (max-width: 767px) {
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
+
+@media (max-width: 575px) {
+  .u-section-1 .u-list-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-right: 45px;
+  }
+
+  .u-section-1 .u-text-3 {
+    margin-right: 201px;
+  }
+}#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}
+.nolink 
+{
+	text-decoration: none;
+}
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+} 

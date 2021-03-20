@@ -7,54 +7,74 @@
 <script asp-src-include="lib/jquery/dist/*.min.js"></script>
 <script asp-src-include="lib/jquery-validation/dist/jquery.*.min.js"></script>
 <script asp-src-include="lib/jquery-validation-unobtrusive/*.min.js"></script>
-<link rel="stylesheet" type="text/css" href="~/css/work.css">
+<link rel="stylesheet" type="text/css" href="~/css/Work.css">
 
-<section id="heading">
-    <p>@Resources.Home.Work.Work.Header</p>
-</section>
+<section class="u-clearfix u-image u-section-1" id="carousel_4b05" data-image-width="1200" data-image-height="800">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-row">
+                    <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                        <div class="u-container-layout u-container-layout-1">
+                            <h3 class="u-text u-text-body-alt-color u-text-1">03</h3>
+                            <p class="u-custom-font u-heading-font u-text u-text-body-alt-color u-text-2">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <div alt="" class="u-image u-image-circle u-image-1" data-image-width="1000" data-image-height="1500"></div>
+                        </div>
+                    </div>
+                    <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                        <div class="u-container-layout u-container-layout-2">
+                            <div class="u-form u-form-1">
+                                <form asp-action="Work" enctype="multipart/form-data" method="post" style="padding: 10px" source="custom" name="form">
+                                    <div class="u-clearfix u-form-spacing-30 u-inner-form u-form-vertical">
+                                        <div class="u-form-group u-form-name u-form-group-1">
+                                            <label for="name-319a" class="u-label u-text-body-alt-color u-label-1">@Resources.Home.Work.Work.NameLabel</label>
+                                            <div><span asp-validation-for="Name" style="color: darkred"></span></div>
+                                            <input type="text" asp-for="Name" placeholder="@Resources.Home.Work.Work.NameLabel" id="name-319a" class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required>
+                                        </div>
+                                        <div class="u-form-group u-form-group-2">
+                                            <label for="text-00bd" class="u-label u-text-body-alt-color u-label-2">@Resources.Home.Work.Work.SurnameLabel</label>
+                                            <div><span asp-validation-for="Surname" style="color: darkred"></span></div>
+                                            <input type="text" asp-for="Surname" placeholder="@Resources.Home.Work.Work.SurnameLabel" id="text-00bd" class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required>
+                                        </div>
+                                        <div class="u-form-email u-form-group u-form-partition-factor-2 u-form-group-3">
+                                            <label for="email-319a" class="u-label u-text-body-alt-color u-label-3">@Resources.Home.Work.Work.EmailLabel</label>
+                                            <div><span asp-validation-for="Email" style="color: darkred"></span></div>
+                                            <input type="email" asp-for="Email" placeholder="@Resources.Home.Work.Work.EmailLabel" id="email-319a" name="Email" class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required>
+                                        </div>
+                                        <div class="u-form-group u-form-group-4">
+                                            <label for="text-8490" class="u-label u-text-body-alt-color u-label-4">@Resources.Home.Work.Work.AgeLabel</label>
+                                            <div><span asp-validation-for="Age" style="color: darkred"></span></div>
+                                            <input type="number" asp-for="Age" placeholder="@Resources.Home.Work.Work.AgeLabel" id="text-8490" class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle" required>
+                                        </div>
+                                        <div class="u-form-group u-form-select u-form-group-5">
+                                            <label for="select-7269" class="u-label u-text-body-alt-color u-label-5">@Resources.Home.Work.Work.StaffLabel</label>
+                                            <div class="u-form-select-wrapper">
+                                                @Html.DropDownListFor(model => model.Vacancy, ViewBag.Vacancies as SelectList, new { htmlAttributes = new { id = "select-7269", 
+                                                                                                                                                               name = "select", 
+                                                                                                                                                               @class="u-border-1 u-border-no-left u-border-no-right u-border-no-top u-border-white u-input u-input-rectangle",     
+                                                                                                                                                               style="background-color: white"} })
+                                       
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                                            </div>
+                                        </div>
 
-<main>
-    <section id="register">
-        <form asp-action="Work" enctype="multipart/form-data" method="post">
+                                        <div class="u-form-group u-form-select u-form-group-5">
+                                            <label for="cv" class="u-label u-text-body-alt-color u-label-5">@Resources.Home.Work.Work.CvLabel</label><br>
+                                            <div><span asp-validation-for="Cv" style="color: darkred"></span></div>
+                                            <input asp-for="Cv" type="file" accept=".doc,.docx,.pdf" required>
+                                        </div>
 
-            <div asp-validation-summary="None" style="color: darkred"></div>
-
-            <label for="name">@Resources.Home.Work.Work.NameLabel</label><br>
-            <div><span asp-validation-for="Name" style="color: darkred"></span></div>
-            <input asp-for="Name" type="text" placeholder="@Resources.Home.Work.Work.NameLabel" id="name" required class="inputs">
-            <br />
-
-            <label for="surname">@Resources.Home.Work.Work.SurnameLabel</label><br>
-            <div><span asp-validation-for="Surname" style="color: darkred"></span></div>
-            <input asp-for="Surname" type="text" placeholder="@Resources.Home.Work.Work.SurnameLabel" id="surname" required class="inputs">
-            <br />
-
-            <label for="birthdate">@Resources.Home.Work.Work.AgeLabel</label><br>
-            <div><span asp-validation-for="Age" style="color: darkred"></span></div>
-            <input asp-for="Age" type="number" placeholder="@Resources.Home.Work.Work.AgeLabel" id="birthdate" required class="inputs">
-            <br />
-
-            <label for="email">@Resources.Home.Work.Work.EmailLabel</label><br>
-            <div><span asp-validation-for="Email" style="color: darkred"></span></div>
-            <input asp-for="Email" type="email" placeholder="user@example.com" id="email" required class="inputs">
-            <br />
-
-            <label for="job">@Resources.Home.Work.Work.StaffLabel</label><br>
-            <div><span asp-validation-for="Vacancy" style="color: darkred"></span></div>
-            @Html.DropDownListFor(model => model.Vacancy, ViewBag.Vacancies as SelectList, new { htmlAttributes = new { id = "job" } })
-
-            <br />
-
-            <label for="cv">@Resources.Home.Work.Work.CvLabel</label><br>
-            <div><span asp-validation-for="Cv" style="color: darkred"></span></div>
-            <div>
-                <input asp-for="Cv" type="file" accept=".doc,.docx,.pdf" required>
-
-                <button type="submit">
-                    @Resources.Home.Work.Work.Submit
-                </button>
+                                        <div class="u-align-left u-form-group u-form-submit u-form-group-6">
+                                            <button type="submit" class="u-btn u-btn-submit u-button-style u-white u-btn-1">@Resources.Home.Work.Work.Submit</button>
+                                        </div>
+                                        <input type="hidden" value="" name="recaptchaResponse">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        </form>
-    </section>
-</main>
+        </div>
+    </div>
+</section>

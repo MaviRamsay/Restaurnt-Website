@@ -40,7 +40,11 @@ namespace Restaurant_Website.Services.Implementations
 
         public async Task<ProductCategory> GetCategoryByIdAsync(int id)
         {
-            return await unitOfWork.ProductCategories.GetByIdAsync(id);
+            return await unitOfWork.ProductCategories.GetAsync(t => t.Id == id, inc => inc.Include(t => t.Translations)
+                                                                                    .ThenInclude(t => t.Language)
+                                                                                .Include(t => t.Products)
+                                                                                    .ThenInclude(t => t.Translations)
+                                                                                        .ThenInclude(t => t.Language));
         }
 
         public async Task<IEnumerable<ProductCategory>> GetProductCategoriesAsync()

@@ -24,10 +24,32 @@ namespace Restaurant_Website.Controllers
             this.userLanguage = accessor.HttpContext.Request.Cookies["culture"] ?? accessor.HttpContext.Items["culture"].ToString();
         }
 
-        public async Task<FileContentResult> GetCategoryImage(int fileId)
+        public async Task<FileContentResult> GetImage(int? fileId)
         {
-            var img = await uploadFileService.GetByIdAsync(fileId);
+            if (!fileId.HasValue) return null;
+
+            var img = await uploadFileService.GetByIdAsync(fileId.Value);
             return new FileContentResult(img.Content, img.ContentType);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GetProducts(int categoryId)
+        {
+            var category = await productCategoryService.GetCategoryByIdAsync(categoryId);
+            
+            if (!(category is null))
+            {
+                IMapper productMapper = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductViewModel>()
+                                            .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name))
+                                            .ForMember(m => m.Description, opt => opt.MapFrom((s, d) => d.Description = s.Translations.First(t => t.Language.Code == userLanguage).Description)))
+                                            .CreateMapper();
+                var products = productMapper.Map<IEnumerable<ProductViewModel>>(category.Products);
+
+                return PartialView("CategoryProducts", products);
+
+            }
+            else
+                return NotFound();
         }
 
         [Route("menu")]
@@ -35,8 +57,14 @@ namespace Restaurant_Website.Controllers
         {
             var categories = await productCategoryService.GetProductCategoriesAsync();
 
+            //IMapper productMapper = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductViewModel>()
+            //                            .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name)))
+            //                            .CreateMapper();
+
             IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProductCategory, ProductCategoryViewModel>()
                             .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name)))
+                            //.ForMember(m => m.Products, opt => opt.Ignore()))
+                            //.ForMember(m => m.Products, opt => opt.MapFrom((s, d) => d.Products = productMapper.Map<IEnumerable<ProductViewModel>>(s.Products))))
                             .CreateMapper();
 
             var model = mapper.Map<IEnumerable<ProductCategoryViewModel>>(categories);

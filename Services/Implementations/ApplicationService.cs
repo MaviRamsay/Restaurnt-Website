@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Restaurant_Website.Domain.Core;
 using Restaurant_Website.Domain.Interfaces;
 using Restaurant_Website.Services.Interfaces;
@@ -38,7 +39,8 @@ namespace Restaurant_Website.Services.Implementations
 
         public async Task<Application> GetByIdAsync(int id)
         {
-            return await unitOfWork.Applications.GetByIdAsync(id);
+            return await unitOfWork.Applications.GetAsync(t => t.Id == id, inc => inc.Include(entity => entity.Vacancy)
+                                                                                        .Include(entity => entity.Cv));
         }
 
         public Task<IEnumerable<Application>> GetAllAsync()

@@ -74,6 +74,74 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
                 await applicationContext.VacancyTranslations.AddRangeAsync(vacancies);
                 await applicationContext.SaveChangesAsync();
             }
+
+            if (!applicationContext.ProductCategories.Any())
+            {
+                IEnumerable<ProductCategory> productCategories = new List<ProductCategory>
+                {
+                    new ProductCategory { Image = null },
+                    new ProductCategory() { Image = null },
+                    new ProductCategory() { Image = null }
+                };
+
+                await applicationContext.ProductCategories.AddRangeAsync(productCategories);
+                await applicationContext.SaveChangesAsync();
+            }
+
+            if (!applicationContext.ProductCategoryTranslations.Any())
+            {
+                IEnumerable<ProductCategoryLang> productCategoryTranslations = new List<ProductCategoryLang>
+                {
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 1), Category = applicationContext.ProductCategories.First(t => t.Id == 1), Name = "Drink" },
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 2), Category = applicationContext.ProductCategories.First(t => t.Id == 1), Name = "Бухло" },
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 3), Category = applicationContext.ProductCategories.First(t => t.Id == 1), Name = "Խմիչք" },
+
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 1), Category = applicationContext.ProductCategories.First(t => t.Id == 2), Name = "Dishes" },
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 2), Category = applicationContext.ProductCategories.First(t => t.Id == 2), Name = "Блюды" },
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 3), Category = applicationContext.ProductCategories.First(t => t.Id == 2), Name = "Ուտեստներ" },
+
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 1), Category = applicationContext.ProductCategories.First(t => t.Id == 3), Name = "Salates" },
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 2), Category = applicationContext.ProductCategories.First(t => t.Id == 3), Name = "Салаты" },
+                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 3), Category = applicationContext.ProductCategories.First(t => t.Id == 3), Name = "Աղցաններ" }
+                };
+
+                await applicationContext.ProductCategoryTranslations.AddRangeAsync(productCategoryTranslations);
+                await applicationContext.SaveChangesAsync();
+            }
+
+            if (!applicationContext.Products.Any())
+            {
+                IEnumerable<Product> products = new List<Product>
+                {
+                    new Product { Category = applicationContext.ProductCategories.First(t => t.Id == 1), Image = null, Price = 12.00M },
+                    new Product { Category = applicationContext.ProductCategories.First(t => t.Id == 2), Image = null, Price = 15.00M },
+                    new Product { Category = applicationContext.ProductCategories.First(t => t.Id == 3), Image = null, Price = 18.00M },
+                };
+
+                await applicationContext.Products.AddRangeAsync(products);
+                await applicationContext.SaveChangesAsync();
+            }
+
+            if (!applicationContext.ProductTranslations.Any())
+            {
+                IEnumerable<ProductLang> productsTranslations = new List<ProductLang>
+                {
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 1), Product = applicationContext.Products.First(t => t.Id == 1), Name = "Beer", Description = "Tooyn beer" },
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 2), Product = applicationContext.Products.First(t => t.Id == 1), Name = "Пиво", Description = "Крутое пиво" },
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 3), Product = applicationContext.Products.First(t => t.Id == 1), Name = "Գարեջուր", Description = "Ուժեղ գարեջուր" },
+
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 1), Product = applicationContext.Products.First(t => t.Id == 2), Name = "Club", Description = "Tasty club" },
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 2), Product = applicationContext.Products.First(t => t.Id == 2), Name = "Клаб", Description = "Вкусный клаб" },
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 3), Product = applicationContext.Products.First(t => t.Id == 2), Name = "Քլաբ", Description = "Համեղ քլաբ" },
+
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 1), Product = applicationContext.Products.First(t => t.Id == 3), Name = "Olivien", Description = "Fresh" },
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 2), Product = applicationContext.Products.First(t => t.Id == 3), Name = "Оливье", Description = "Свежее" },
+                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 3), Product = applicationContext.Products.First(t => t.Id == 3), Name = "Մայրաքաղաքային աղցան", Description = "Թարմ" },
+                };
+
+                await applicationContext.ProductTranslations.AddRangeAsync(productsTranslations);
+                await applicationContext.SaveChangesAsync();
+            }
         }
     }
 }
