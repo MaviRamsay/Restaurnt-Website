@@ -2,8 +2,6 @@
 
 @model IEnumerable<ProductViewModel>
 
-<link rel="stylesheet" href="~/css/Menu.css" />
-
 <div class="u-expanded-width u-products u-products-1">
     <div class="u-repeater u-repeater-1">
         @foreach (var product in Model)
@@ -11,7 +9,7 @@
             <div class="u-list u-repeater u-list-1">
                 <div class="u-container-style u-list-item u-repeater-item">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                        <img src="~/images/1.jpg" alt="" class="u-expanded-width u-image u-image-default u-image-1">
+                        <img src="@Url.Action("Menu", "GetImage", new { fileId = product.ImageId })" alt="" class="u-expanded-width u-image u-image-default u-image-1">
                         <h5 class="u-text u-text-1">@product.Name&nbsp;</h5>
                         <p class="u-text u-text-2">@product.Description</p>
                         <h4 class="u-text u-text-black u-text-3">@product.Price</h4>

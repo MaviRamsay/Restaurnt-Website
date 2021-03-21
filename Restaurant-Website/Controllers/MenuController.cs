@@ -43,6 +43,7 @@ namespace Restaurant_Website.Controllers
                                             .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name))
                                             .ForMember(m => m.Description, opt => opt.MapFrom((s, d) => d.Description = s.Translations.First(t => t.Language.Code == userLanguage).Description)))
                                             .CreateMapper();
+
                 var products = productMapper.Map<IEnumerable<ProductViewModel>>(category.Products);
 
                 return PartialView("CategoryProducts", products);
@@ -57,14 +58,8 @@ namespace Restaurant_Website.Controllers
         {
             var categories = await productCategoryService.GetProductCategoriesAsync();
 
-            //IMapper productMapper = new MapperConfiguration(cfg => cfg.CreateMap<Product, ProductViewModel>()
-            //                            .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name)))
-            //                            .CreateMapper();
-
             IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProductCategory, ProductCategoryViewModel>()
                             .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name)))
-                            //.ForMember(m => m.Products, opt => opt.Ignore()))
-                            //.ForMember(m => m.Products, opt => opt.MapFrom((s, d) => d.Products = productMapper.Map<IEnumerable<ProductViewModel>>(s.Products))))
                             .CreateMapper();
 
             var model = mapper.Map<IEnumerable<ProductCategoryViewModel>>(categories);
