@@ -3,13 +3,14 @@
 }
 
 @model IEnumerable<Restaurant_Website.Models.Menu.ProductCategoryViewModel>
+
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
 
 <link rel="stylesheet" href="~/css/Menu.css" />
 
 <section class="u-clearfix u-white u-section-1" id="carousel_3729">
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-clearfix u-sheet u-sheet-1">
         <div id="outer" class="btn-group">
 
             <form asp-controller="Menu" asp-action="GetProducts" method="post" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#menuProducts" data-ajax-loading="#whileLoading">
@@ -21,10 +22,15 @@
                 }
             </form>
             <div id="menuProducts">
+                @await Html.PartialAsync("CategoryProducts", Model.SelectMany(t => t.Products));
             </div>
         </div>
-        
         <div id="whileLoading" class="loader" style="margin-left: 50%; display: none"></div>
+        <div id="userCartContent"></div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            @await Html.PartialAsync("CartIcon")
+        }
     </div>
 </section>
-

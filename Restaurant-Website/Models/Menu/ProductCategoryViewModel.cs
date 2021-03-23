@@ -1,5 +1,4 @@
-﻿using Restaurant_Website.Domain.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Restaurant_Website.Models.Menu
 {
@@ -8,6 +7,6 @@ namespace Restaurant_Website.Models.Menu
         public int Id { get; set; }
         public string Name { get; set; }
         public int? ImageId { get; set; }
-        //public IEnumerable<ProductViewModel> Products { get; set; }
+        public IEnumerable<ProductViewModel> Products { get; set; }
     }
 }

@@ -24,12 +24,14 @@ namespace Restaurant_Website.Controllers
             this.userLanguage = accessor.HttpContext.Request.Cookies["culture"] ?? accessor.HttpContext.Items["culture"].ToString();
         }
 
-        public async Task<FileContentResult> GetImage(int? fileId)
+        public async Task<IActionResult> GetImage(int? id)
         {
-            if (!fileId.HasValue) return null;
+            if (!id.HasValue) return NotFound();
 
-            var img = await uploadFileService.GetByIdAsync(fileId.Value);
-            return new FileContentResult(img.Content, img.ContentType);
+            var img = await uploadFileService.GetByIdAsync(id.Value);
+
+            if (img is null) return NotFound();
+            else return new FileContentResult(img.Content, img.ContentType);
         }
 
         [HttpPost]
@@ -58,9 +60,13 @@ namespace Restaurant_Website.Controllers
         {
             var categories = await productCategoryService.GetProductCategoriesAsync();
 
-            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProductCategory, ProductCategoryViewModel>()
-                            .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name)))
-                            .CreateMapper();
+            IMapper mapper = new MapperConfiguration(cfg => {
+                cfg.CreateMap<Product, ProductViewModel>()
+                                            .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name))
+                                            .ForMember(m => m.Description, opt => opt.MapFrom((s, d) => d.Description = s.Translations.First(t => t.Language.Code == userLanguage).Description));
+                cfg.CreateMap<ProductCategory, ProductCategoryViewModel>()
+                    .ForMember(m => m.Name, opt => opt.MapFrom((s, d) => d.Name = s.Translations.First(t => t.Language.Code == userLanguage).Name));
+            }).CreateMapper();
 
             var model = mapper.Map<IEnumerable<ProductCategoryViewModel>>(categories);
             return View(model);

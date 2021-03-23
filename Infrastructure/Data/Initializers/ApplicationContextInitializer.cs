@@ -46,29 +46,29 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
                 IEnumerable<VacancyLang> vacancies = new List<VacancyLang>
                 {
                     // cooker
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 1), Vacancy = applicationContext.Vacancies.First(t => t.Id == 1), VacancyName = "Cooker" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 2), Vacancy = applicationContext.Vacancies.First(t => t.Id == 1), VacancyName = "Повар" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 3), Vacancy = applicationContext.Vacancies.First(t => t.Id == 1), VacancyName = "Խոհարար" },
+                    new VacancyLang { LanguageId = 1, VacancyId = 1, VacancyName = "Cooker" },
+                    new VacancyLang { LanguageId = 2, VacancyId = 1, VacancyName = "Повар" },
+                    new VacancyLang { LanguageId = 3, VacancyId = 1, VacancyName = "Խոհարար" },
 
                     // manager
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 1), Vacancy = applicationContext.Vacancies.First(t => t.Id == 2), VacancyName = "Manager" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 2), Vacancy = applicationContext.Vacancies.First(t => t.Id == 2), VacancyName = "Менеджер" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 3), Vacancy = applicationContext.Vacancies.First(t => t.Id == 2), VacancyName = "Մենեջեր" },
+                    new VacancyLang { LanguageId = 1, VacancyId = 2, VacancyName = "Manager" },
+                    new VacancyLang { LanguageId = 2, VacancyId = 2, VacancyName = "Менеджер" },
+                    new VacancyLang { LanguageId = 3, VacancyId = 2, VacancyName = "Մենեջեր" },
 
                     // waiter
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 1), Vacancy = applicationContext.Vacancies.First(t => t.Id == 3), VacancyName = "Waiter" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 2), Vacancy = applicationContext.Vacancies.First(t => t.Id == 3), VacancyName = "Официант(-ка)" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 3), Vacancy = applicationContext.Vacancies.First(t => t.Id == 3), VacancyName = "Խոհարար(-ուհի)" },
+                    new VacancyLang { LanguageId = 1, VacancyId = 3, VacancyName = "Waiter" },
+                    new VacancyLang { LanguageId = 2, VacancyId = 3, VacancyName = "Официант(-ка)" },
+                    new VacancyLang { LanguageId = 3, VacancyId = 3, VacancyName = "Խոհարար(-ուհի)" },
 
                     // cleaner
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 1), Vacancy = applicationContext.Vacancies.First(t => t.Id == 4), VacancyName = "Cleaner" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 2), Vacancy = applicationContext.Vacancies.First(t => t.Id == 4), VacancyName = "Уборщик(-ица)" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 3), Vacancy = applicationContext.Vacancies.First(t => t.Id == 4), VacancyName = "Հավաքարար(-ուհի)" },
+                    new VacancyLang { LanguageId = 1, VacancyId = 4, VacancyName = "Cleaner" },
+                    new VacancyLang { LanguageId = 2, VacancyId = 4, VacancyName = "Уборщик(-ица)" },
+                    new VacancyLang { LanguageId = 3, VacancyId = 4, VacancyName = "Հավաքարար(-ուհի)" },
 
                     // cashier
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 1), Vacancy = applicationContext.Vacancies.First(t => t.Id == 5), VacancyName = "Cashier" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 2), Vacancy = applicationContext.Vacancies.First(t => t.Id == 5), VacancyName = "Кассир(-ша)" },
-                    new VacancyLang { Language = applicationContext.Languages.First(t => t.Id == 3), Vacancy = applicationContext.Vacancies.First(t => t.Id == 5), VacancyName = "Գանձապահ(-ուհի)" }
+                    new VacancyLang { LanguageId = 1, VacancyId = 5, VacancyName = "Cashier" },
+                    new VacancyLang { LanguageId = 2, VacancyId = 5, VacancyName = "Кассир(-ша)" },
+                    new VacancyLang { LanguageId = 3, VacancyId = 5, VacancyName = "Գանձապահ(-ուհի)" }
                 };
 
                 await applicationContext.VacancyTranslations.AddRangeAsync(vacancies);
@@ -79,9 +79,9 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
             {
                 IEnumerable<ProductCategory> productCategories = new List<ProductCategory>
                 {
-                    new ProductCategory { Image = null },
-                    new ProductCategory() { Image = null },
-                    new ProductCategory() { Image = null }
+                    new ProductCategory { ImageId = null },
+                    new ProductCategory() { ImageId = null },
+                    new ProductCategory() { ImageId = null }
                 };
 
                 await applicationContext.ProductCategories.AddRangeAsync(productCategories);
@@ -92,17 +92,17 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
             {
                 IEnumerable<ProductCategoryLang> productCategoryTranslations = new List<ProductCategoryLang>
                 {
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 1), Category = applicationContext.ProductCategories.First(t => t.Id == 1), Name = "Drink" },
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 2), Category = applicationContext.ProductCategories.First(t => t.Id == 1), Name = "Бухло" },
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 3), Category = applicationContext.ProductCategories.First(t => t.Id == 1), Name = "Խմիչք" },
+                    new ProductCategoryLang { LanguageId = 1, CategoryId = 1, Name = "Drink" },
+                    new ProductCategoryLang { LanguageId = 2, CategoryId = 1, Name = "Бухло" },
+                    new ProductCategoryLang { LanguageId = 3, CategoryId = 1, Name = "Խմիչք" },
 
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 1), Category = applicationContext.ProductCategories.First(t => t.Id == 2), Name = "Dishes" },
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 2), Category = applicationContext.ProductCategories.First(t => t.Id == 2), Name = "Блюды" },
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 3), Category = applicationContext.ProductCategories.First(t => t.Id == 2), Name = "Ուտեստներ" },
+                    new ProductCategoryLang { LanguageId = 1, CategoryId = 2, Name = "Dishes" },
+                    new ProductCategoryLang { LanguageId = 2, CategoryId = 2, Name = "Блюды" },
+                    new ProductCategoryLang { LanguageId = 3, CategoryId = 2, Name = "Ուտեստներ" },
 
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 1), Category = applicationContext.ProductCategories.First(t => t.Id == 3), Name = "Salates" },
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 2), Category = applicationContext.ProductCategories.First(t => t.Id == 3), Name = "Салаты" },
-                    new ProductCategoryLang { Language = applicationContext.Languages.First(t => t.Id == 3), Category = applicationContext.ProductCategories.First(t => t.Id == 3), Name = "Աղցաններ" }
+                    new ProductCategoryLang { LanguageId = 1, CategoryId = 3, Name = "Salates" },
+                    new ProductCategoryLang { LanguageId = 2, CategoryId = 3, Name = "Салаты" },
+                    new ProductCategoryLang { LanguageId = 3, CategoryId = 3, Name = "Աղցաններ" }
                 };
 
                 await applicationContext.ProductCategoryTranslations.AddRangeAsync(productCategoryTranslations);
@@ -113,9 +113,9 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
             {
                 IEnumerable<Product> products = new List<Product>
                 {
-                    new Product { Category = applicationContext.ProductCategories.First(t => t.Id == 1), Image = null, Price = 12.00M },
-                    new Product { Category = applicationContext.ProductCategories.First(t => t.Id == 2), Image = null, Price = 15.00M },
-                    new Product { Category = applicationContext.ProductCategories.First(t => t.Id == 3), Image = null, Price = 18.00M },
+                    new Product { CategoryId = 3, ImageId =  null, Price = 18.00M },
+                    new Product { CategoryId = 2, ImageId =  null, Price = 15.00M },
+                    new Product { CategoryId = 1, ImageId =  null, Price = 12.00M },
                 };
 
                 await applicationContext.Products.AddRangeAsync(products);
@@ -126,17 +126,17 @@ namespace Restaurant_Website.Infrastructure.Data.Initializers
             {
                 IEnumerable<ProductLang> productsTranslations = new List<ProductLang>
                 {
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 1), Product = applicationContext.Products.First(t => t.Id == 1), Name = "Beer", Description = "Tooyn beer" },
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 2), Product = applicationContext.Products.First(t => t.Id == 1), Name = "Пиво", Description = "Крутое пиво" },
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 3), Product = applicationContext.Products.First(t => t.Id == 1), Name = "Գարեջուր", Description = "Ուժեղ գարեջուր" },
+                    new ProductLang { LanguageId = 1, ProductId = 1, Name = "Beer", Description = "Tooyn beer" },
+                    new ProductLang { LanguageId = 2, ProductId = 1, Name = "Пиво", Description = "Крутое пиво" },
+                    new ProductLang { LanguageId = 3, ProductId = 1, Name = "Գարեջուր", Description = "Ուժեղ գարեջուր" },
 
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 1), Product = applicationContext.Products.First(t => t.Id == 2), Name = "Club", Description = "Tasty club" },
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 2), Product = applicationContext.Products.First(t => t.Id == 2), Name = "Клаб", Description = "Вкусный клаб" },
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 3), Product = applicationContext.Products.First(t => t.Id == 2), Name = "Քլաբ", Description = "Համեղ քլաբ" },
+                    new ProductLang { LanguageId = 1, ProductId = 2, Name = "Club", Description = "Tasty club" },
+                    new ProductLang { LanguageId = 2, ProductId = 2, Name = "Клаб", Description = "Вкусный клаб" },
+                    new ProductLang { LanguageId = 3, ProductId = 2, Name = "Քլաբ", Description = "Համեղ քլաբ" },
 
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 1), Product = applicationContext.Products.First(t => t.Id == 3), Name = "Olivien", Description = "Fresh" },
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 2), Product = applicationContext.Products.First(t => t.Id == 3), Name = "Оливье", Description = "Свежее" },
-                    new ProductLang { Language = applicationContext.Languages.First(t => t.Id == 3), Product = applicationContext.Products.First(t => t.Id == 3), Name = "Մայրաքաղաքային աղցան", Description = "Թարմ" },
+                    new ProductLang { LanguageId = 1, ProductId = 3, Name = "Olivien", Description = "Fresh" },
+                    new ProductLang { LanguageId = 2, ProductId = 3, Name = "Оливье", Description = "Свежее" },
+                    new ProductLang { LanguageId = 3, ProductId = 3, Name = "Մայրաքաղաքային աղցան", Description = "Թարմ" },
                 };
 
                 await applicationContext.ProductTranslations.AddRangeAsync(productsTranslations);

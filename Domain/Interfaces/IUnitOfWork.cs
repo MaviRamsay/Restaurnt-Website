@@ -16,6 +16,8 @@ namespace Restaurant_Website.Domain.Interfaces
         IRepositoty<ProductLang> ProductTranslations { get; }
         IRepositoty<ProductCategoryLang> ProductCategoryTranslations { get; }
 
+        IRepositoty<Cart> Carts { get; }
+
         Task CommitAsync();
     }
 }

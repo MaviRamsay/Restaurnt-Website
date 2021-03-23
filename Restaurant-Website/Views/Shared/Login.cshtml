@@ -1,0 +1,44 @@
+﻿@model Restaurant_Website.Models.Account.LoginViewModel
+
+<script asp-src-include="lib/jquery/dist/*.min.js"></script>
+<script asp-src-include="lib/jquery-validation/dist/jquery.*.min.js"></script>
+<script asp-src-include="lib/jquery-validation-unobtrusive/*.min.js"></script>
+<link rel="stylesheet" href="~/css/pop ups/login.css" />
+
+<section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-section-4" style="display: unset" id="loginDialog">
+    <div class="u-align-center u-container-style u-dialog u-radius-50 u-shape-round u-white u-dialog-1">
+        <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-align-left u-text u-text-1">LOG IN</h2>
+            <div class="u-align-center u-form u-form-1">
+                <div asp-validation-summary="All" style="color: darkred"></div>
+                <form asp-controller="Account" asp-action="Login" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#userCartContent" style="padding: 10px" source="custom" name="form">
+                    <div class="u-form-group u-form-name">
+                        <label for="name-b0b6" class="u-label">Phone number</label>
+                        <input type="tel" asp-for="Login" placeholder="Phone number" id="name-b0b6" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                        <div><span asp-validation-for="Login" style="color: darkred"></span></div>
+                    </div>
+                    <div class="u-form-email u-form-group">
+                        <label for="email-b0b6" class="u-label">Password</label>
+                        <input type="password" asp-for="Password" placeholder="Password" id="email-b0b6" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                        <div><span asp-validation-for="Password" style="color: darkred"></span></div>
+                    </div>
+                    <div class="u-form-checkbox u-form-group u-form-group-3">
+                        <input asp-for="Remember" type="checkbox" id="checkbox-6dc4">
+                        <label for="checkbox-6dc4" class="u-label">Remember me</label>
+                    </div>
+                    <div class="u-align-center u-form-group u-form-submit">
+                        <button type="submit" value="submit" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-30">Sign in</button>
+                    </div>
+                </form>
+            </div>
+            <h5 class="u-text u-text-2">
+                Not have an account?
+                <span style="font-weight: 700;">
+                    <a href="#registerDialog" class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-palette-1-base u-btn-2" onclick="document.getElementById('loginDialog').style.display = 'none'; document.getElementById('registerDialog').style.display = 'unset'">Register now!</a>
+                </span>
+            </h5>
+        </div><button class="u-dialog-close-button u-icon u-icon-circle u-text-palette-1-base" style="width: 22px; height: 22px" onclick="hidePopup('#loginDialog')"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-497a"></use></svg><svg class="u-svg-content" id="svg-497a"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+    </div>
+</section>
+
+@await Html.PartialAsync("Register")

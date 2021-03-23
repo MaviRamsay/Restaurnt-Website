@@ -74,9 +74,16 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         public virtual void Delete(T item) => Entities.Remove(item);
         public virtual async void Delete(object id)
         {
+
             T removedItem = await GetByIdAsync(id);
             Delete(removedItem);
         }
+
+        public virtual void DeleteRange(IEnumerable<T> range)
+        {
+            Entities.RemoveRange(range);
+        }
+
         public virtual void Update(T item)
         {
             Entities.Attach(item);

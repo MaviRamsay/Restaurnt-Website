@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Restaurant_Website.Models.Cart.CartViewModel>
+
+<link rel="stylesheet" href="~/css/pop ups/cart.css" />
+
+<div class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-section-6" style="display: unset;" id="cartDialog">
+    <div class="u-container-style u-dialog u-radius-23 u-shape-round u-white u-dialog-1">
+        <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h2 class="u-align-left u-text u-text-1">Your cart</h2>
+            @if (Model.Count() == 0)
+            {
+                <h2>Your cart has empty</h2>
+            }
+            else
+            {
+                <div style="overflow-y: auto" class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1" >
+                    <div class="u-gutter-0 u-layout" style="max-height: 350px; overflow-y: auto">
+                        @foreach (var item in Model)
+                        {
+                            <div class="u-layout-row" style="max-height: 100px; ">
+                                <div class="u-align-center u-container-style u-layout-cell u-size-12 u-size-20-md u-layout-cell-1">
+                                    <div class="u-container-layout u-valign-top u-container-layout-2">
+                                        <img src="@Url.Action("GetImage", "Menu", new { id = item.Product.ImageId })" data-image-width="626" data-image-height="417">
+                                    </div>
+                                </div>
+                                <div class="u-align-center u-container-style u-layout-cell u-size-12 u-size-20-md u-layout-cell-2">
+                                    <div class="u-container-layout u-valign-top u-container-layout-3">
+                                        <p class="u-text u-text-2">@item.Product.Name</p>
+                                    </div>
+                                </div>
+                                <div class="u-align-center u-container-style u-layout-cell u-size-12 u-size-20-md u-layout-cell-3">
+                                    <div class="u-container-layout u-valign-top u-container-layout-4">
+                                        @*<input class="u-quantity-input u-product-quantity u-input" type="number" onchange="document.getElementById('productCount').innerText = $(this).val() * @item.Product.Price" style="width: 20%" min="1" value="@item.Quantity" />*@
+                                        <p class="u-align-center u-text u-text-2">@item.Count pcs.</p>
+
+                                    </div>
+                                </div>
+                                <div class="u-align-center u-container-style u-layout-cell u-size-12 u-size-30-md u-layout-cell-4">
+                                    <div class="u-container-layout u-valign-top u-container-layout-5">
+                                        <p class="u-align-center u-text u-text-4">@(item.Count * item.Product.Price)</p>
+                                    </div>
+                                </div>
+                                <div class="u-align-center u-container-style u-layout-cell u-size-12 u-size-30-md u-layout-cell-5">
+                                    <div class="u-container-layout u-valign-top u-container-layout-6">
+                                        <form asp-controller="Cart" asp-action="DeleteCartItem" method="post" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#userCartContent">
+
+                                            <button type="submit" name="itemId" value="@item.Id" class="u-align-left u-btn u-btn-round u-button-style u-hover-palette-2-dark-1 u-palette-2-base u-radius-50 u-btn-1">delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <h4 class="u-align-right u-text u-text-body-color u-text-5">Total: @Model.Sum(t => t.Count * t.Product.Price)$</h4>
+
+                <a asp-controller="Cart" asp-action="BuyCart" class="oneLine u-align-right u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-6 u-btn-2">BUY</a>
+                <a asp-controller="Cart" asp-action="ClearCart" class="oneLine u-align-right u-btn u-btn-round u-button-style u-hover-palette-2-dark-1 u-palette-2-base u-radius-6 u-btn-3">CLEAR</a>
+            }
+            
+        </div><button class="u-dialog-close-button u-icon u-icon-circle u-text-palette-1-base" style="width: 22px; height: 22px" onclick="hidePopup('#cartDialog')"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-91eb"></use></svg><svg class="u-svg-content" id="svg-91eb"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+    </div>
+</div>

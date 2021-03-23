@@ -13,7 +13,10 @@ namespace Restaurant_Website.Domain.Core
         public string Surname { get; set; }
         public string Email { get; set; }
         public int Age { get; set; }
+
+        public int? VacancyId { get; set; }
         public Vacancy Vacancy { get; set; }
+        public int? CvId { get; set; }
         public UploadedFile Cv { get; set; }
     }
 }

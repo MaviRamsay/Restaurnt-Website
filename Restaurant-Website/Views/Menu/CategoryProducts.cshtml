@@ -2,22 +2,24 @@
 
 @model IEnumerable<ProductViewModel>
 
+
 <div class="u-expanded-width u-products u-products-1">
-    <div class="u-repeater u-repeater-1">
-        @foreach (var product in Model)
-        {
-            <div class="u-list u-repeater u-list-1">
-                <div class="u-container-style u-list-item u-repeater-item">
+    <div class="u-list u-repeater u-list-1">
+        <div class="u-container-style u-list-item u-repeater-item">
+            @foreach (var product in Model)
+            {
+                <form asp-controller="Cart" asp-action="AddToCart" method="post" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#userCartContent">
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                        <img src="@Url.Action("Menu", "GetImage", new { fileId = product.ImageId })" alt="" class="u-expanded-width u-image u-image-default u-image-1">
+                        <img src="@Url.Action("GetImage", "Menu", new { id = product.ImageId })" alt="" class="u-expanded-width u-image u-image-default u-image-1" />
                         <h5 class="u-text u-text-1">@product.Name&nbsp;</h5>
                         <p class="u-text u-text-2">@product.Description</p>
-                        <h4 class="u-text u-text-black u-text-3">@product.Price</h4>
-                        <input style="width: 20%;" class="u-quantity-input u-product-quantity" type="number" name="quantity" min="1" value="1">
-                        <a href="#" class="u-black u-btn u-button-style u-btn-2">Buy</a>
+                        <h4 class="u-text u-text-black u-text-3">$ @product.Price</h4>
+
+                        <button type="submit" name="productId" value="@product.Id" class="u-black u-btn u-button-style u-btn-2">BUY</button>
+                        <input style="width: 20%;" class="u-quantity-input u-product-quantity u-text u-text-4" type="number" name="count" value="1" min="1" />
                     </div>
-                </div>
-            </div>
-        }
+                </form>
+            }
+        </div>
     </div>
 </div>

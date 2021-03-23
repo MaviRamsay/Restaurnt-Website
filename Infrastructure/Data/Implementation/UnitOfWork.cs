@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Restaurant_Website.Domain.Interfaces;
 using Restaurant_Website.Domain.Core;
 using Restaurant_Website.Infrastructure.Data.Context;
-using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace Restaurant_Website.Infrastructure.Data.Implementation
@@ -24,6 +21,8 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         private IRepositoty<ProductLang> productLangRepository;
         private IRepositoty<ProductCategoryLang> productCategoryLangRepository;
 
+        private IRepositoty<Cart> cartRepository;
+
         public UnitOfWork(ApplicationContext context) => this.context = context;
 
         public IRepositoty<Language> Languages { get => languageRepository ??= new BaseRepository<Language>(context); }
@@ -37,10 +36,13 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         public IRepositoty<ProductLang> ProductTranslations { get => productLangRepository ??= new BaseRepository<ProductLang>(context); }
         public IRepositoty<ProductCategoryLang> ProductCategoryTranslations { get => productCategoryLangRepository ??= new BaseRepository<ProductCategoryLang>(context); }
 
+        public IRepositoty<Cart> Carts { get => cartRepository ??= new BaseRepository<Cart>(context); }
+
         public async Task CommitAsync() => await context.SaveChangesAsync();
 
         public async ValueTask DisposeAsync()
         {
+            await context.DisposeAsync();
             //await CommitAsync();
         }
     }

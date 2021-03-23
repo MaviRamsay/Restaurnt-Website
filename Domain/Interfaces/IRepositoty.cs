@@ -21,5 +21,6 @@ namespace Restaurant_Website.Domain.Interfaces
         void Update(T item);
         void Delete(T item);
         void Delete(object id);
+        void DeleteRange(IEnumerable<T> range);
     }
 }

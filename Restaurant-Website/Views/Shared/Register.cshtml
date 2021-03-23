@@ -1,0 +1,46 @@
+﻿@model Restaurant_Website.Models.Account.RegisterViewModel
+
+<link rel="stylesheet" href="~/css/pop ups/register.css" />
+
+<section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-section-5" id="registerDialog" data-dialog-show-on="click" data-dialog-show-interval="2000">
+    <div class="u-container-style u-dialog u-radius-50 u-shape-round u-white u-dialog-1">
+        <div class="u-container-layout u-valign-middle u-container-layout-1">
+            <h3 class="u-align-left u-text u-text-1">Registration</h3>
+            <div class="u-align-center u-form u-form-1">
+                <div asp-validation-summary="All" style="color: darkred"></div>
+
+                <form asp-controller="Account" asp-action="Register" method="post" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" data-ajax="true" data-ajax-method="post" data-ajax-mode="replace" data-ajax-update="#userCartContent" data-ajax-complete="onRegistered" style="padding: 10px" source="custom" name="form">
+                    <div class="u-form-group u-form-name">
+                        <label for="name-5434" class="u-label">Phone number</label>
+                        <input type="tel" asp-for="PhoneNumber" placeholder="Phone number" id="name-5434" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                        <div><span asp-validation-for="PhoneNumber" style="color: darkred"></span></div>
+                    </div>
+                    <div class="u-form-email u-form-group">
+                        <label for="name-5434" class="u-label">Password</label>
+                        <input type="password" asp-for="Password" placeholder="Password" id="name-5434" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                        <div><span asp-validation-for="Password" style="color: darkred"></span></div>
+                    </div>
+                    <div class="u-form-group">
+                        <label for="message-5434" class="u-label">Confirm password</label>
+                        <input type="password" asp-for="ConfirmPassword" placeholder="Confirm password" rows="4" cols="50" id="message-5434" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                        <div><span asp-validation-for="ConfirmPassword" style="color: darkred"></span></div>
+                    </div>
+                    <div class="u-align-center u-form-group u-form-submit">
+                        <button type="submit" class="u-btn u-btn-round u-btn-submit u-button-style u-radius-50">
+                            Sign up
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <h6 class="u-align-center u-text u-text-2">
+                Already have an account? <a href="#loginDialog" onclick="document.getElementById('registerDialog').style.display = 'none'; document.getElementById('loginDialog').style.display = 'unset'" class="u-active-none u-border-none u-btn u-button-link u-button-style u-dialog-link u-hover-none u-none u-text-palette-1-base u-btn-2">Log in</a>
+            </h6>
+        </div><button class="u-dialog-close-button u-icon u-icon-circle u-text-palette-1-base" style="width: 22px; height: 22px" onclick="hidePopup('#registerDialog')"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-b98b"></use></svg><svg class="u-svg-content" id="svg-b98b"><rect x="7" y="0" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="2" height="16"></rect><rect x="0" y="7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)" width="16" height="2"></rect></svg></button>
+    </div>
+</section>
+
+<script>
+    function onRegistered(response) {
+        document.getElementById('registerDialog').style.display = 'unset';
+    }
+</script>

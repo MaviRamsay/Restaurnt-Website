@@ -10,6 +10,8 @@ using Restaurant_Website.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Website.Services.Interfaces;
 using Restaurant_Website.Services.Implementations;
+using Restaurant_Website.Domain.Core;
+using Microsoft.AspNetCore.Identity;
 
 namespace Restaurant_Website
 {
@@ -31,6 +33,11 @@ namespace Restaurant_Website
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
                 x => x.MigrationsAssembly("Restaurant_Website.Infrastructure.Data")));
 
+            services.AddIdentity<AppUser, IdentityRole>()
+                        .AddEntityFrameworkStores<ApplicationContext>();
+            services.AddAuthentication();
+            services.AddAuthorization();
+
             services.AddSingleton(typeof(IRepositoty<>), typeof(BaseRepository<>));
 
             services.AddHttpContextAccessor();
@@ -45,6 +52,9 @@ namespace Restaurant_Website
             services.AddScoped<IApplicationService, ApplicationService>();
             services.AddScoped<IUploadFileService, UploadFileService>();
             services.AddScoped<IProductCategoryService, ProductCategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICartService, CartService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +77,7 @@ namespace Restaurant_Website
             app.UseMiddleware<ConfigureLanguageMiddleware>();
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
