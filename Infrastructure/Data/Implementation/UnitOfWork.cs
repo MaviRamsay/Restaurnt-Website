@@ -22,6 +22,7 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         private IRepositoty<ProductCategoryLang> productCategoryLangRepository;
 
         private IRepositoty<Cart> cartRepository;
+        private IRepositoty<Order> orderRepository;
 
         public UnitOfWork(ApplicationContext context) => this.context = context;
 
@@ -37,6 +38,7 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
         public IRepositoty<ProductCategoryLang> ProductCategoryTranslations { get => productCategoryLangRepository ??= new BaseRepository<ProductCategoryLang>(context); }
 
         public IRepositoty<Cart> Carts { get => cartRepository ??= new BaseRepository<Cart>(context); }
+        public IRepositoty<Order> Orders { get => orderRepository ??= new BaseRepository<Order>(context); }
 
         public async Task CommitAsync() => await context.SaveChangesAsync();
 

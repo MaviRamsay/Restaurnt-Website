@@ -44,24 +44,27 @@ namespace Restaurant_Website.Services.Implementations
 
         public async Task<string> GetDefaultCodeAsync(HttpContext context)
         {
-            IPAddress ip = context.Connection.RemoteIpAddress;
+            //IPAddress ip = context.Connection.RemoteIpAddress;
 
-            string requestCountry = await GetCountryCodeByIpAsync(ip);
-            Language languageInstance = await unitOfWork.Languages.GetAsync(t => t.AvalibleCountries.Contains(requestCountry));
+            //string requestCountry = await GetCountryCodeByIpAsync(ip);
+            //Language languageInstance = await unitOfWork.Languages.GetAsync(t => t.AvalibleCountries.Contains(requestCountry));
 
-            string languageCode;
-
-            if (languageInstance is null)
-            {
-                languageCode = configuration
+            string languageCode = configuration
                                     .GetSection("AppSettings")
                                     .GetSection("DefaultLanguage")
                                     .Value;
-            }
-            else
-            {
-                languageCode = languageInstance.Code;
-            }
+
+            //if (languageInstance is null)
+            //{
+            //    languageCode = configuration
+            //                        .GetSection("AppSettings")
+            //                        .GetSection("DefaultLanguage")
+            //                        .Value;
+            //}
+            //else
+            //{
+            //    languageCode = languageInstance.Code;
+            //}
 
             return languageCode;
         }

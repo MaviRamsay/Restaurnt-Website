@@ -6,5 +6,6 @@ namespace Restaurant_Website.Domain.Core
     public class AppUser : IdentityUser
     {
         public ICollection<Cart> Cart { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

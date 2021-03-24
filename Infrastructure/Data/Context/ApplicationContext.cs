@@ -18,6 +18,7 @@ namespace Restaurant_Website.Infrastructure.Data.Context
         public DbSet<ProductLang> ProductTranslations { get; set; }
 
         public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> dbContext)
             : base(dbContext)

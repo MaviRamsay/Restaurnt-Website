@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant_Website.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant_Website.Services.Implementations", "Services\Implementations\Restaurant_Website.Services.Implementations.csproj", "{BF1030A4-D702-44CF-BF42-3F24FAF09A11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant_Website.Infrastructure.Extensions", "Restaurant_Website.Infrastructure.Extensions\Restaurant_Website.Infrastructure.Extensions.csproj", "{851FEA47-95E6-4B8C-B5ED-BC1B793523AD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{BF1030A4-D702-44CF-BF42-3F24FAF09A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF1030A4-D702-44CF-BF42-3F24FAF09A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF1030A4-D702-44CF-BF42-3F24FAF09A11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{851FEA47-95E6-4B8C-B5ED-BC1B793523AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{851FEA47-95E6-4B8C-B5ED-BC1B793523AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{851FEA47-95E6-4B8C-B5ED-BC1B793523AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{851FEA47-95E6-4B8C-B5ED-BC1B793523AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,7 +68,6 @@ Global
 		{4F8A256B-6002-4F82-B03A-AA7E237B4A57} = {600B7958-11CB-4200-9EC6-71A1DCCF05CF}
 		{09C83C99-CAF9-467E-A171-887E847F5649} = {AEA59A8F-AA62-4E0A-8033-578B7A55033E}
 		{BF1030A4-D702-44CF-BF42-3F24FAF09A11} = {AEA59A8F-AA62-4E0A-8033-578B7A55033E}
-		{851FEA47-95E6-4B8C-B5ED-BC1B793523AD} = {600B7958-11CB-4200-9EC6-71A1DCCF05CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C65B573E-48ED-49E0-81E0-CA844180BB9E}

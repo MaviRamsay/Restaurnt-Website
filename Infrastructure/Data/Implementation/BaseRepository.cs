@@ -70,11 +70,11 @@ namespace Restaurant_Website.Infrastructure.Data.Implementation
 
         public virtual void Insert(T item) => Entities.Add(item);
         public virtual async Task InsertAsync(T item) => await Entities.AddAsync(item);
+        public virtual async Task InsertRangeAsync(IEnumerable<T> items) => await Entities.AddRangeAsync(items);
 
         public virtual void Delete(T item) => Entities.Remove(item);
         public virtual async void Delete(object id)
         {
-
             T removedItem = await GetByIdAsync(id);
             Delete(removedItem);
         }

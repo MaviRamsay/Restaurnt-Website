@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Restaurant_Website.Domain.Core;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Restaurant_Website.Infrastructure.Extensions;
 using System.Collections.Generic;
 using Restaurant_Website.Models.Menu;
 using System.Linq;

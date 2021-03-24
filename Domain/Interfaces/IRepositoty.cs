@@ -18,6 +18,7 @@ namespace Restaurant_Website.Domain.Interfaces
 
         void Insert(T item);
         Task InsertAsync(T item);
+        Task InsertRangeAsync(IEnumerable<T> items);
         void Update(T item);
         void Delete(T item);
         void Delete(object id);

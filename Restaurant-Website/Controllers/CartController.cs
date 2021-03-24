@@ -19,13 +19,17 @@ namespace Restaurant_Website.Controllers
         private readonly UserManager<AppUser> userManager;
         private readonly IProductService productService;
         private readonly ICartService cartService;
+        private readonly IOrderService orderService;
+
         private readonly string userLanguage;
 
-        public CartController(UserManager<AppUser> userManager, IProductService productService, ICartService cartService, IHttpContextAccessor accessor)
+        public CartController(UserManager<AppUser> userManager, IProductService productService, 
+            ICartService cartService, IOrderService orderService, IHttpContextAccessor accessor)
         {
             this.userManager = userManager;
             this.productService = productService;
             this.cartService = cartService;
+            this.orderService = orderService;
             this.userLanguage = accessor.HttpContext.Request.Cookies["culture"] ?? accessor.HttpContext.Items["culture"].ToString();
         }
 
@@ -92,7 +96,7 @@ namespace Restaurant_Website.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            else return View(cart);
+            else return View(cart.Sum(t => t.Product.Price * t.Count));
         }
 
         private async Task<IEnumerable<CartViewModel>> GetCartAsync()
