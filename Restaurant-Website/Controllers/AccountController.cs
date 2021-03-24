@@ -21,15 +21,31 @@ namespace Restaurant_Website.Controllers
         private readonly UserManager<AppUser> userManager;
         
 
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, 
-                                IProductService productService, ICartService cartService, IHttpContextAccessor accessor)
+        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IHttpContextAccessor accessor)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
 
+        [HttpGet, Route("login")]
+        public IActionResult Login()
+        {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+            else
+                return View();
+        }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpGet, Route("registration")]
+        public IActionResult Register()
+        {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+            else
+                return View();
+        }
+
+        [HttpPost, Route("login"), ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel loginModel)
         {
             if (ModelState.IsValid)
@@ -38,7 +54,14 @@ namespace Restaurant_Website.Controllers
 
                 if (result.Succeeded)
                 {
-                    return Ok();
+                    if (IsAjaxRequest())
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 else
                 {
@@ -46,10 +69,28 @@ namespace Restaurant_Website.Controllers
                 }
             }
 
-            return PartialView();
+            if (IsAjaxRequest())
+            {
+                return PartialView(nameof(Login) + "Partial");
+            }
+            else
+            {
+                return View();
+            }
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                await signInManager.SignOutAsync();
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost, Route("registration"), ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel registerModel)
         {
             if (ModelState.IsValid)
@@ -70,7 +111,16 @@ namespace Restaurant_Website.Controllers
                 }
             }
 
-            return PartialView();
+            if (IsAjaxRequest())
+            {
+                return PartialView(nameof(Register) + "Partial");
+            }
+            else
+            {
+                return View();
+            }
         }
+
+        private bool IsAjaxRequest() => HttpContext.Request.Headers["X-Requested-With"] == "XMLHttpRequest";
     }
 }

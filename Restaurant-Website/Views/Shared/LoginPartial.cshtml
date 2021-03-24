@@ -1,9 +1,9 @@
 ﻿@model Restaurant_Website.Models.Account.LoginViewModel
 
+<link rel="stylesheet" href="~/css/pop ups/login.css" />
 <script asp-src-include="lib/jquery/dist/*.min.js"></script>
 <script asp-src-include="lib/jquery-validation/dist/jquery.*.min.js"></script>
 <script asp-src-include="lib/jquery-validation-unobtrusive/*.min.js"></script>
-<link rel="stylesheet" href="~/css/pop ups/login.css" />
 
 <section class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-valign-middle u-section-4" style="display: unset" id="loginDialog">
     <div class="u-align-center u-container-style u-dialog u-radius-50 u-shape-round u-white u-dialog-1">
@@ -41,4 +41,5 @@
     </div>
 </section>
 
-@await Html.PartialAsync("Register")
+
+@await Html.PartialAsync("RegisterPartial")

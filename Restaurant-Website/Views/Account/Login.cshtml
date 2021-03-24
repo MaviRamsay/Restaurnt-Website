@@ -1,0 +1,93 @@
+﻿@model Restaurant_Website.Models.Account.LoginViewModel
+
+<link rel="stylesheet" href="~/css/Login.css" media="screen">
+<script asp-src-include="lib/jquery/dist/*.min.js"></script>
+<script asp-src-include="lib/jquery-validation/dist/jquery.*.min.js"></script>
+<script asp-src-include="lib/jquery-validation-unobtrusive/*.min.js"></script>
+
+<section class="u-align-center u-clearfix u-image u-section-1" id="carousel_2469" data-image-width="1280" data-image-height="853">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-row">
+                    <div class="u-size-30">
+                        <div class="u-layout-col">
+                            <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
+                                <div class="u-container-layout u-container-layout-1">
+                                    <span class="u-icon u-icon-circle u-text-body-alt-color u-icon-1">
+                                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 480 480" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-ce28"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-ce28" x="0px" y="0px" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve" class="u-svg-content"><g><g><g><path d="M240,0C142.798,0,64,78.798,64,176c0,94.576,162.896,292.712,169.832,301.096c1.52,1.839,3.782,2.904,6.168,2.904     c2.386,0,4.648-1.065,6.168-2.904C253.104,468.712,416,270.576,416,176C416,78.798,337.202,0,240,0z M240,459.288     C209.896,421.712,80,254.976,80,176c0.101-88.324,71.677-159.899,160-160c88.324,0.101,159.899,71.676,160,160     C400,254.96,270.104,421.704,240,459.288z"></path><path d="M348.88,145.664l-104-80c-2.877-2.214-6.883-2.214-9.76,0l-104,80c-3.499,2.697-4.149,7.721-1.452,11.22     c1.514,1.964,3.852,3.115,6.332,3.116h24v88c0,4.418,3.582,8,8,8h144c4.418,0,8-3.582,8-8v-88h24     c4.418-0.002,7.998-3.586,7.996-8.004C351.995,149.516,350.844,147.178,348.88,145.664z M256,240h-32v-48h32V240z M312,144     c-4.418,0-8,3.582-8,8v88h-32v-56c0-4.418-3.582-8-8-8h-48c-4.418,0-8,3.582-8,8v56h-32v-88c0-4.418-3.582-8-8-8h-8.48     L240,82.096L320.48,144H312z"></path>
+</g>
+</g>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                    </span>
+                                    <h4 class="u-custom-font u-font-playfair-display u-text u-text-body-alt-color u-text-1">Address</h4>
+                                    <p class="u-text u-text-body-alt-color u-text-2">Yerevan, Abovyan 13 st.</p>
+                                </div>
+                            </div>
+                            <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-2">
+                                <div class="u-container-layout u-container-layout-2">
+                                    <span class="u-icon u-icon-circle u-text-body-alt-color u-icon-2">
+                                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512.076 512.076" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-ff6a"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-ff6a" x="0px" y="0px" viewBox="0 0 512.076 512.076" style="enable-background:new 0 0 512.076 512.076;" xml:space="preserve" class="u-svg-content"><g transform="translate(-1 -1)"><g><g><path d="M499.639,396.039l-103.646-69.12c-13.153-8.701-30.784-5.838-40.508,6.579l-30.191,38.818     c-3.88,5.116-10.933,6.6-16.546,3.482l-5.743-3.166c-19.038-10.377-42.726-23.296-90.453-71.04s-60.672-71.45-71.049-90.453     l-3.149-5.743c-3.161-5.612-1.705-12.695,3.413-16.606l38.792-30.182c12.412-9.725,15.279-27.351,6.588-40.508l-69.12-103.646     C109.12,1.056,91.25-2.966,77.461,5.323L34.12,31.358C20.502,39.364,10.511,52.33,6.242,67.539     c-15.607,56.866-3.866,155.008,140.706,299.597c115.004,114.995,200.619,145.92,259.465,145.92     c13.543,0.058,27.033-1.704,40.107-5.239c15.212-4.264,28.18-14.256,36.181-27.878l26.061-43.315     C517.063,422.832,513.043,404.951,499.639,396.039z M494.058,427.868l-26.001,43.341c-5.745,9.832-15.072,17.061-26.027,20.173     c-52.497,14.413-144.213,2.475-283.008-136.32S8.29,124.559,22.703,72.054c3.116-10.968,10.354-20.307,20.198-26.061     l43.341-26.001c5.983-3.6,13.739-1.855,17.604,3.959l37.547,56.371l31.514,47.266c3.774,5.707,2.534,13.356-2.85,17.579     l-38.801,30.182c-11.808,9.029-15.18,25.366-7.91,38.332l3.081,5.598c10.906,20.002,24.465,44.885,73.967,94.379     c49.502,49.493,74.377,63.053,94.37,73.958l5.606,3.089c12.965,7.269,29.303,3.898,38.332-7.91l30.182-38.801     c4.224-5.381,11.87-6.62,17.579-2.85l103.637,69.12C495.918,414.126,497.663,421.886,494.058,427.868z"></path><path d="M291.161,86.39c80.081,0.089,144.977,64.986,145.067,145.067c0,4.713,3.82,8.533,8.533,8.533s8.533-3.82,8.533-8.533     c-0.099-89.503-72.63-162.035-162.133-162.133c-4.713,0-8.533,3.82-8.533,8.533S286.448,86.39,291.161,86.39z"></path><path d="M291.161,137.59c51.816,0.061,93.806,42.051,93.867,93.867c0,4.713,3.821,8.533,8.533,8.533     c4.713,0,8.533-3.82,8.533-8.533c-0.071-61.238-49.696-110.863-110.933-110.933c-4.713,0-8.533,3.82-8.533,8.533     S286.448,137.59,291.161,137.59z"></path><path d="M291.161,188.79c23.552,0.028,42.638,19.114,42.667,42.667c0,4.713,3.821,8.533,8.533,8.533s8.533-3.82,8.533-8.533     c-0.038-32.974-26.759-59.696-59.733-59.733c-4.713,0-8.533,3.82-8.533,8.533S286.448,188.79,291.161,188.79z"></path>
+</g>
+</g>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                    </span>
+                                    <h4 class="u-custom-font u-font-playfair-display u-text u-text-body-alt-color u-text-3">Phone</h4>
+                                    <p class="u-text u-text-body-alt-color u-text-4">+374 91 41 43 27</p>
+                                </div>
+                            </div>
+                            <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-3">
+                                <div class="u-container-layout u-valign-top u-container-layout-3">
+                                    <span class="u-icon u-icon-circle u-text-body-alt-color u-icon-3">
+                                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-d4ff"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-d4ff" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" class="u-svg-content"><g><g><g><path d="M486.4,59.733H25.6c-14.138,0-25.6,11.461-25.6,25.6v341.333c0,14.138,11.461,25.6,25.6,25.6h460.8     c14.138,0,25.6-11.461,25.6-25.6V85.333C512,71.195,500.539,59.733,486.4,59.733z M494.933,426.667     c0,4.713-3.82,8.533-8.533,8.533H25.6c-4.713,0-8.533-3.82-8.533-8.533V85.333c0-4.713,3.82-8.533,8.533-8.533h460.8     c4.713,0,8.533,3.82,8.533,8.533V426.667z"></path><path d="M470.076,93.898c-2.255-0.197-4.496,0.51-6.229,1.966L266.982,261.239c-6.349,5.337-15.616,5.337-21.965,0L48.154,95.863     c-2.335-1.96-5.539-2.526-8.404-1.484c-2.865,1.042-4.957,3.534-5.487,6.537s0.582,6.06,2.917,8.02l196.864,165.367     c12.688,10.683,31.224,10.683,43.913,0L474.82,108.937c1.734-1.455,2.818-3.539,3.015-5.794c0.197-2.255-0.51-4.496-1.966-6.229     C474.415,95.179,472.331,94.095,470.076,93.898z"></path><path d="M164.124,273.13c-3.021-0.674-6.169,0.34-8.229,2.65l-119.467,128c-2.162,2.214-2.956,5.426-2.074,8.392     c0.882,2.967,3.301,5.223,6.321,5.897c3.021,0.674,6.169-0.34,8.229-2.65l119.467-128c2.162-2.214,2.956-5.426,2.074-8.392     C169.563,276.061,167.145,273.804,164.124,273.13z"></path><path d="M356.105,275.78c-2.059-2.31-5.208-3.324-8.229-2.65c-3.021,0.674-5.439,2.931-6.321,5.897     c-0.882,2.967-0.088,6.178,2.074,8.392l119.467,128c3.24,3.318,8.536,3.442,11.927,0.278c3.391-3.164,3.635-8.456,0.549-11.918     L356.105,275.78z"></path>
+</g>
+</g>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                                    </span>
+                                    <h4 class="u-custom-font u-font-playfair-display u-text u-text-body-alt-color u-text-5">E-mail</h4>
+                                    <p class="u-text u-text-body-alt-color u-text-6">info@restaurant.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-size-30">
+                        <div class="u-layout-col">
+                            <div class="u-align-center u-container-style u-layout-cell u-opacity u-opacity-55 u-palette-2-base u-radius-50 u-right-cell u-shape-round u-size-60 u-layout-cell-4">
+                                <div class="u-container-layout u-valign-middle u-container-layout-4">
+                                    <h3 class="u-custom-font u-font-playfair-display u-text u-text-7">Log in</h3>
+                                    <div asp-validation-summary="All" style="color: darkred"></div>
+                                    <div class="u-form u-form-1">
+                                        <form asp-controller="Account" asp-action="Login" method="POST" style="padding: 10px" source="custom">
+                                            <div class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form">
+                                                <div class="u-form-group u-form-name">
+                                                    <input asp-for="Login" type="text" placeholder="Phone number" id="name-5c0f" class="u-input u-input-rectangle u-white" required="">
+                                                    <div><span asp-validation-for="Login" style="color: darkred"></span></div>
+                                                </div>
+                                                <div class="u-form-email u-form-group">
+                                                    <input asp-for="Password" type="password" placeholder="Password" id="email-5c0f" class="u-input u-input-rectangle u-white" required="">
+                                                    <div><span asp-validation-for="Password" style="color: darkred"></span></div>
+                                                </div>
+                                                <div class="u-form-checkbox u-form-group u-form-group-3">
+                                                    <input asp-for="Remember" type="checkbox" id="checkbox-7591">
+                                                    <label for="checkbox-7591" class="u-label">Remember me</label>
+                                                </div>
+                                                <div class="u-align-center u-form-group u-form-submit">
+                                                    <button type="submit" class="u-active-palette-2-base u-btn u-btn-round u-btn-submit u-button-style u-custom-font u-font-playfair-display u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">
+                                                        Sign in
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <p class="u-text u-text-8">
+                                        Not have an account? <a asp-controller="Account" asp-action="Register" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">Register now</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

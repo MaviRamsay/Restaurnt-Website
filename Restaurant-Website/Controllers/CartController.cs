@@ -33,7 +33,7 @@ namespace Restaurant_Website.Controllers
         public async Task<IActionResult> GetUserCart()
         {
             if (!User.Identity.IsAuthenticated)
-                return PartialView("Login");
+                return PartialView("LoginPartial");
 
             var cart = await GetCartAsync();
 
@@ -45,7 +45,7 @@ namespace Restaurant_Website.Controllers
         public async Task<IActionResult> AddToCart(int count, int productId)
         {
             if (!User.Identity.IsAuthenticated)
-                return PartialView("Login");
+                return PartialView("LoginPartial");
 
             var product = await productService.GetByIdAsync(productId);
             var user = await userManager.FindByNameAsync(User.Identity.Name);

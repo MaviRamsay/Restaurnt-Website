@@ -4,6 +4,7 @@ namespace Restaurant_Website.Models.Account
 {
     public class RegisterViewModel
     {
+        [DataType(DataType.PhoneNumber)]
         [Phone(ErrorMessage = "Enter a valid phone number")]
         [Required(ErrorMessage = "Fill this field")]
         public string PhoneNumber { get; set; }

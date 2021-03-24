@@ -50,7 +50,7 @@
     <body class="u-body">
         <header class="u-border-3 u-border-grey-75 u-clearfix u-header u-sticky u-header" id="sec-ff9a">
             <div class="u-clearfix u-sheet u-sheet-1" style="">
-                <a asp-action="Index" class="u-image u-logo u-image-1" data-image-width="197" data-image-height="34">
+                <a asp-controller="Home" asp-action="Index" class="u-image u-logo u-image-1" data-image-width="197" data-image-height="34">
                     <img src="~/images/figaro_dark.svg" class="u-logo-image u-logo-image-1" data-image-width="215.353">
                 </a>
                 <div class="u-dropdown-icon u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -82,7 +82,31 @@
                             <li class="u-nav-item">
                                 <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-grey-90" asp-controller="Home" asp-action="Work" style="padding: 10px 0px;">@Resources.Layout.Layout.NavWork</a>
                             </li>
-
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link" style="padding: 10px 0px;">Account</a>
+                                    <div class="u-nav-popup">
+                                        <ul class="u-border-5 u-border-grey-75 u-h-spacing-4 u-nav u-unstyled u-v-spacing-3 u-nav-5">
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link" asp-controller="Account" asp-action="Orders">Orders history</a>
+                                            </li>
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link" href="#">Settings</a>
+                                            </li>
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link" asp-controller="Account" asp-action="Logout">Log out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="u-nav-item">
+                                    <a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-grey-90 u-text-hover-grey-90" asp-controller="Account" asp-action="Login" style="padding: 10px 0px;">Login</a>
+                                </li>
+                            }
                             @await Component.InvokeAsync("Languages")
                         </ul>
                     </div>
