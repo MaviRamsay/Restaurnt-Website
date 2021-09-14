@@ -1,0 +1,36 @@
+2021-09-14 15:08:22.8151 Info Message Template Auto Format enabled
+2021-09-14 15:08:22.8260 Info Loading assembly: NLog.Web.AspNetCore
+2021-09-14 15:08:22.8690 Info Adding target FileTarget(Name=allfile)
+2021-09-14 15:08:22.8704 Info Adding target FileTarget(Name=ownFile-web)
+2021-09-14 15:08:22.8704 Warn Skipping unrecognized property 'tolower=true` for ${level} (NLog.LayoutRenderers.LevelLayoutRenderer)
+2021-09-14 15:08:22.8715 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2021-09-14 15:08:22.9028 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=65, FilePath=/home/mavi/restaurant/Restaurnt-Website/Restaurant-Website/bin/Debug/netcoreapp3.1/nlog.config
+2021-09-14 15:08:24.7500 Info Shutdown() called. Logger closing...
+2021-09-14 15:08:24.7500 Info Closing old configuration.
+2021-09-14 15:08:24.7651 Info Logger has been closed down.
+2021-09-14 15:08:24.7669 Info AppDomain Shutting down. Logger closing...
+2021-09-14 15:08:24.7679 Info Logger has been shut down.
+2021-09-14 15:08:57.7276 Info Message Template Auto Format enabled
+2021-09-14 15:08:57.7378 Info Loading assembly: NLog.Web.AspNetCore
+2021-09-14 15:08:57.7798 Info Adding target FileTarget(Name=allfile)
+2021-09-14 15:08:57.7806 Info Adding target FileTarget(Name=ownFile-web)
+2021-09-14 15:08:57.7818 Warn Skipping unrecognized property 'tolower=true` for ${level} (NLog.LayoutRenderers.LevelLayoutRenderer)
+2021-09-14 15:08:57.7818 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2021-09-14 15:08:57.8061 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=65, FilePath=/home/mavi/restaurant/Restaurnt-Website/Restaurant-Website/bin/Debug/netcoreapp3.1/nlog.config
+2021-09-14 15:08:59.3987 Info Shutdown() called. Logger closing...
+2021-09-14 15:08:59.3987 Info Closing old configuration.
+2021-09-14 15:08:59.4127 Info Logger has been closed down.
+2021-09-14 15:08:59.4135 Info AppDomain Shutting down. Logger closing...
+2021-09-14 15:08:59.4146 Info Logger has been shut down.
+2021-09-14 15:11:30.2740 Info Message Template Auto Format enabled
+2021-09-14 15:11:30.2837 Info Loading assembly: NLog.Web.AspNetCore
+2021-09-14 15:11:30.3236 Info Adding target FileTarget(Name=allfile)
+2021-09-14 15:11:30.3249 Info Adding target FileTarget(Name=ownFile-web)
+2021-09-14 15:11:30.3249 Warn Skipping unrecognized property 'tolower=true` for ${level} (NLog.LayoutRenderers.LevelLayoutRenderer)
+2021-09-14 15:11:30.3256 Info Adding target ConsoleTarget(Name=lifetimeConsole)
+2021-09-14 15:11:30.3476 Info Validating config: TargetNames=allfile, lifetimeConsole, ownFile-web, ConfigItems=65, FilePath=/home/mavi/restaurant/Restaurnt-Website/Restaurant-Website/bin/Debug/netcoreapp3.1/nlog.config
+2021-09-14 15:13:05.6223 Info Shutdown() called. Logger closing...
+2021-09-14 15:13:05.6225 Info Closing old configuration.
+2021-09-14 15:13:05.6296 Info Logger has been closed down.
+2021-09-14 15:13:05.6304 Info AppDomain Shutting down. Logger closing...
+2021-09-14 15:13:05.6304 Info Logger has been shut down.
