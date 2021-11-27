@@ -10,4 +10,4 @@ Restaurant website developed on ASP.NET Core MVC
   dotnet run
 ```
 
-## Written by [**mavi**] (https://github.com/justmavi)
+## Written by [**mavi**](https://github.com/justmavi)
